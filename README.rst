@@ -2,7 +2,7 @@
 Courtside: pick up sports app.
 ==================================================
 
-Make games plans and let all your friends know about it. 
+Make game plans and let all your friends know about it. 
 
 ============
 Installation
