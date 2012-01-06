@@ -1,9 +1,10 @@
 from django.contrib.auth.models import User
-from tastypie.resources import ModelResource,ALL, ALL_WITH_RELATIONS
+from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 from tastypie import fields
 
 from game.models import Game
 from register.models import Sport, Player
+
 
 class SportResource(ModelResource):
     class Meta:
@@ -15,6 +16,7 @@ class SportResource(ModelResource):
         filtering = {
             'sport': ('exact')
         }
+
 
 class UserResource(ModelResource):
     class Meta:
@@ -28,6 +30,7 @@ class UserResource(ModelResource):
             'username': ALL,
             'email': ALL
         }
+
 
 class PlayerResource(ModelResource):
     user = fields.ForeignKey(UserResource, 'user', full=True)
@@ -43,6 +46,7 @@ class PlayerResource(ModelResource):
             'gender' : ALL,
             'sports' : ALL_WITH_RELATIONS,
         }
+
 
 class GameResource(ModelResource):
     sport = fields.ForeignKey(SportResource, 'sport', full=True)

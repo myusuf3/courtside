@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 GENDER_CHOICES = (
         (u'Q', u'Undisclosed'),
         (u'M', u'Male'),
         (u'F', u'Female'),
-       
     )
+
 
 class Sport(models.Model):
     """ This will store the sport they are interested in playing in.

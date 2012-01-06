@@ -3,10 +3,10 @@ from register.models import Player, Sport
 
 
 class PlayerAdmin(admin.ModelAdmin):
-	pass
+    pass
 
 class SportAdmin(admin.ModelAdmin):
-	pass
+    pass
 
 
 admin.site.register(Player, PlayerAdmin)

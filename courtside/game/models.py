@@ -1,14 +1,11 @@
-from datetime import datetime
-
-from django.db import models
 from django.contrib.auth.models import User
-
+from django.db import models
 from register.models import Player, Sport
 
-class Game(models.Model):
-    """ This class represents the Game model. 
-    """
 
+class Game(models.Model):
+    """ This class represents the Game model.
+    """
     players = models.ManyToManyField(Player)
     owner = models.ForeignKey(User)
     sport = models.ForeignKey(Sport)
@@ -25,4 +22,4 @@ class Game(models.Model):
 
     class Meta:
         verbose_name_plural = "Games"
-    
+
