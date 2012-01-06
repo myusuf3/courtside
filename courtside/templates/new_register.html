@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block nav %}{% endblock %}
+
+{% block content %}
+<div class="clearfix">
+    </div>
+
+    <section id="register" class="grid_12">
+      <h2 id="login_heading">Create your Account</h2>
+      
+      <div id="login_methods" class="clearfix">
+        <form id="register_new" action="/login/signup/" method="post" >
+        	{% csrf_token %}
+	        {{ form.as_p}}
+          <input class="input_button" type="submit" value="Submit" />
+        </form>
+
+      </div>
+    </section>
+{% endblock %}

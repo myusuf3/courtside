@@ -1,0 +1,210 @@
+[
+  {
+    "model" : "auth.User",
+    "pk": 2,
+    "fields": {
+      "username" : "iammale",
+      "first_name" : "I am",
+      "last_name" : "Male",
+      "email" : "iammale@gmail.com",
+      "password" : "test"
+    }
+  },
+   {
+    "model" : "register.Player",
+    "pk": 2,
+    "fields": {
+      "user" : 2,
+      "gender" : "M",
+      "facebook_id" : "54645",
+      "image_url" : "http://www.gravatar.com/avatar/240f00368979a3327c854f560001c42e?s=250",
+      "sports" : [1, 2, 5]
+    }
+  },
+
+    {
+    "model" : "auth.User",
+    "pk": 3,
+    "fields": {
+      "username" : "iamfemale",
+      "first_name" : "I am",
+      "last_name" : "Female",
+      "email" : "iamfemale@gmail.com",
+      "password" : "test"
+    }
+  },
+  {
+    "model" : "register.Player",
+    "pk": 3,
+    "fields": {
+      "user" : 3,
+      "gender" : "F",
+      "facebook_id" : "65465456",
+      "image_url" : "http://www.gravatar.com/avatar/240f00368979a3327c854f560001c42e?s=250",
+      "sports" : [3, 4, 5]
+    }
+  },
+
+    {
+    "model" : "auth.User",
+    "pk": 4,
+    "fields": {
+      "username" : "nogender",
+      "first_name" : "Qinta",
+      "last_name" : "Shanana",
+      "email" : "qinta@gmail.com",
+      "password" : "test"
+    }
+  },
+    {
+    "model" : "register.Player",
+    "pk": 4,
+    "fields": {
+      "user" : 4,
+      "gender" : "Q",
+      "facebook_id" : "654354",
+      "image_url" : "http://www.gravatar.com/avatar/240f00368979a3327c854f560001c42e?s=250",
+      "sports" : [1, 4]
+    }
+  },
+
+  {
+    "model" : "game.Game",
+    "pk": 1,
+    "fields": {
+      "players" : [],
+      "sport" : 1,
+      "owner" : 2,
+      "address" : "1840 Lorraine Ave.",
+      "latitude" : "45.3811878",
+      "longitude" : "-75.6417002",
+      "start_date_and_time" : "2011-08-07 17:30:00",
+      "minimum_players" : 4,
+      "restrictions" : "",
+      "active" : "False"
+    }
+  },
+
+  {
+    "model" : "game.Game",
+    "pk": 2,
+    "fields": {
+      "players" : [2],
+      "sport" : 2,
+      "owner" : 3,
+      "address" : "Carleton University",
+      "latitude" : "45.3835317",
+      "longitude" : "-75.6975174",
+      "start_date_and_time" : "2011-08-08 17:30:00",
+      "minimum_players" : 10,
+      "restrictions" : "3 on 3",
+      "active" : "False"
+    }
+  },
+
+  {
+    "model" : "game.Game",
+    "pk": 3,
+    "fields": {
+      "players" : [2, 3],
+      "sport" : 2,
+      "owner" : 4,
+      "address" : "Riverside Dr.",
+      "latitude" :  "45.3767126",
+      "longitude" : "-75.6818349",
+      "start_date_and_time" : "2011-08-09 16:30:00",
+      "minimum_players" : 7,
+      "restrictions" : "Womens Only",
+      "active" : "False"
+    }
+  },
+
+    {
+    "model" : "game.Game",
+    "pk": 4,
+    "fields": {
+      "players" : [2],
+      "sport" : 3,
+      "owner" : 4,
+      "address" : "Dup Riverside Dr.",
+      "latitude" :  "45.3777126",
+      "longitude" : "-75.682",
+      "start_date_and_time" : "2011-08-10 16:30:00",
+      "minimum_players" : 10,
+      "restrictions" : "",
+      "active" : "False"
+    }
+  },
+
+  {
+    "model" : "game.Game",
+    "pk": 5,
+    "fields": {
+      "players" : [4],
+      "sport" : 4,
+      "owner" : 2,
+      "address" : "Dup Carleton University",
+      "latitude" : "45.3845317",
+      "longitude" : "-75.6775174",
+      "start_date_and_time" : "2011-08-11 17:30:00",
+      "minimum_players" : 2,
+      "restrictions" : "",
+      "active" : "False"
+    }
+  },
+
+  {
+    "model" : "game.Game",
+    "pk": 6,
+    "fields": {
+      "players" : [2, 4],
+      "sport" : 5,
+      "owner" : 3,
+      "address" : "Dup 1840 Lorraine Ave.",
+      "latitude" : "45.3841878",
+      "longitude" : "-75.6416002",
+      "start_date_and_time" : "2011-08-12 17:30:00",
+      "minimum_players" : 4,
+      "restrictions" : "",
+      "active" : "False"
+    },
+
+ 
+    "model" : "register.Sport",
+    "pk": 1,
+    "fields": {
+      "sport" : "basketball"
+    }
+  }, 
+    {
+    "model" : "register.Sport",
+    "pk": 2,
+    "fields": {
+      "sport" : "hockey"
+    }
+  }, 
+    {
+    "model" : "register.Sport",
+    "pk": 3,
+    "fields": {
+      "sport" : "baseball"
+    }
+  }, 
+    {
+    "model" : "register.Sport",
+    "pk": 4,
+    "fields": {
+      "sport" : "volleyball"
+    }
+  }, 
+    {
+    "model" : "register.Sport",
+    "pk": 5,
+    "fields": {
+      "sport" : "soccer"
+    }
+  }
+
+
+
+]

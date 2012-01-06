@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&region=US"></script>
+  <script type="text/javascript" src="http://code.google.com/apis/gears/gears_init.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/gmaps.js"></script>    
+  <script type="text/javascript" src="{{STATIC_URL}}js/search.js"></script>
+  <script>
+    var basketball = new Array();
+    var soccer = new Array();
+    var hockey = new Array();
+    var baseball = new Array();
+    var volleyball = new Array();
+
+    var basketball_hidden;
+    var soccer_hidden;
+    var hockey_hidden;
+    var baseball_hidden;
+    var volleyball_hidden;
+
+    var basketball_icon_url = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=+|f0652a|f0652a"
+    var hockey_icon_url = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=+|01b0c5|01b0c5"
+    var soccer_icon_url = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=+|08ab50|08ab50"
+    var volleyball_icon_url = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=+|92278f|92278f"
+    var baseball_icon_url = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=+|ffb518|ffb518"
+
+    $(function() {
+        $(document).ready(function(){
+
+            basketball_hidden = false;
+            soccer_hidden = false;
+            hockey_hidden = false;
+            baseball_hidden = false;
+            volleyball_hidden = false;
+
+            var game_location;
+            {% for b in basketball %}
+                game_location = new google.maps.LatLng({{b.latitude}},{{b.longitude}});
+                
+                var mark = new google.maps.Marker({
+                        map: map,
+                        position: game_location,
+                        title: "{{b.id}}",
+                        icon: basketball_icon_url
+                        //animation: google.maps.Animation.BOUNCE
+                });
+
+                google.maps.event.addListener(mark, 'click', (function(mark) {
+                    return function() {
+                        window.location.replace("/game/" + mark.title);
+                    }
+                  })(mark));
+
+                basketball.push(mark);
+            {% endfor %}
+            console.log(basketball.length);
+
+            {% for h in hockey %}
+                game_location = new google.maps.LatLng({{h.latitude}},{{h.longitude}});
+                var mark = new google.maps.Marker({
+                        map: map,
+                        position: game_location,
+                        title: "{{h.id}}",
+                        icon: hockey_icon_url
+
+                });
+
+                google.maps.event.addListener(mark, 'click', (function(mark) {
+                    return function() {
+                        window.location.replace("/game/" + mark.title);
+                    }
+                  })(mark));
+
+                hockey.push(mark);
+            {% endfor %}
+            console.log(hockey.length);
+
+            {% for s in soccer %}
+                game_location = new google.maps.LatLng({{s.latitude}},{{s.longitude}});
+                var mark = new google.maps.Marker({
+                        map: map,
+                        position: game_location,
+                        title: "{{s.id}}",
+                        icon: soccer_icon_url
+                });
+
+                google.maps.event.addListener(mark, 'click', (function(mark) {
+                    return function() {
+                        window.location.replace("/game/" + mark.title);
+                    }
+                  })(mark));
+
+                soccer.push(mark);
+            {% endfor %}
+            console.log(soccer.length);
+
+            {% for b in baseball %}
+                game_location = new google.maps.LatLng({{b.latitude}},{{b.longitude}});
+                var mark = new google.maps.Marker({
+                        map: map,
+                        position: game_location,
+                        title: "{{b.id}}",
+                        icon: baseball_icon_url
+                });
+                google.maps.event.addListener(mark, 'click', (function(mark) {
+                    return function() {
+                        window.location.replace("/game/" + mark.title);
+                    }
+                  })(mark));
+
+                baseball.push(mark);
+            {% endfor %}
+            console.log(baseball.length);
+
+
+            {% for v in volleyball %}
+                game_location = new google.maps.LatLng({{v.latitude}},{{v.longitude}});
+                var mark = new google.maps.Marker({
+                        map: map,
+                        position: game_location,
+                        title: "{{v.id}}",
+                        icon: volleyball_icon_url
+                });
+
+                    google.maps.event.addListener(mark, 'click', (function(mark) {
+                    return function() {
+                        window.location.replace("/game/" + mark.title);
+                    }
+                  })(mark));
+
+                volleyball.push(mark);
+            {% endfor %}
+            console.log(volleyball.length);
+        });
+
+        $('#basketball').click(function () {
+            if (basketball_hidden){
+                basketball_hidden = false;
+                for(index in basketball) {
+                    basketball[index].setVisible(true);
+                    basketball[index].setAnimation(google.maps.Animation.BOUNCE);
+                }
+                $('.basketball').removeClass('hide')
+            } else {
+                basketball_hidden = true;
+                for(index in basketball) {
+                    basketball[index].setVisible(false);
+                }
+                $('.basketball').addClass('hide')
+            }
+        });
+
+
+        $('#hockey').click(function () {
+            if (hockey_hidden){
+                hockey_hidden = false;
+                for(index in hockey) {
+                    hockey[index].setVisible(true);
+                    hockey[index].setAnimation(google.maps.Animation.BOUNCE);
+                }
+                $('.hockey').removeClass('hide')
+            } else {
+                hockey_hidden = true;
+                for(index in hockey) {
+                    hockey[index].setVisible(false);
+                }
+                $('.hockey').addClass('hide')
+            }
+        });
+
+        $('#soccer').click(function () {
+            if (soccer_hidden){
+                soccer_hidden = false;
+                for(index in soccer) {
+                    soccer[index].setVisible(true);
+                    soccer[index].setAnimation(google.maps.Animation.BOUNCE);
+                }
+                $('.soccer').removeClass('hide')
+            } else {
+                soccer_hidden = true;
+                for(index in soccer) {
+                    soccer[index].setVisible(false);
+                }
+                $('.soccer').addClass('hide')
+            }
+        });
+
+        $('#baseball').click(function () {
+            if (baseball_hidden){
+                baseball_hidden = false;
+                for(index in baseball) {
+                    baseball[index].setVisible(true);
+                    baseball[index].setAnimation(google.maps.Animation.BOUNCE);
+                }
+                $('.baseball').removeClass('hide')
+            } else {
+                baseball_hidden = true;
+                for(index in baseball) {
+                    baseball[index].setVisible(false);
+                }
+                $('.baseball').addClass('hide')
+            }
+        });
+
+        $('#volleyball').click(function () {
+            if (volleyball_hidden){
+                volleyball_hidden = false;
+                for(index in volleyball) {
+                    volleyball[index].setVisible(true);
+                    volleyball[index].setAnimation(google.maps.Animation.BOUNCE);
+                }
+                $('.volleyball').removeClass('hide')
+            } else {
+                volleyball_hidden = true;
+                for(index in volleyball) {
+                    volleyball[index].setVisible(false);
+                }
+                $('.volleyball').addClass('hide')
+            }
+        });
+
+    });
+    
+  </script>
+{% endblock %}
