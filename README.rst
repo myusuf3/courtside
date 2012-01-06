@@ -12,7 +12,7 @@ Installation
 
 - To install requirements::
 
-    $ pip install -r requirements
+    $ pip install -r requirements.txt
 
 - You will need to create a keys file in keys module for the twitter and fb app keys, ones there are old and note used.
 
