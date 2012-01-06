@@ -23,3 +23,12 @@ Contributions
 =============
 
 All software contributions are welcome and encouraged.
+
+
+========
+Twitter
+========    
+
+- Mahdi Yusuf @myusuf3
+- Omar Shammas @omarshammas
+- Serena Ngai @serenangai
