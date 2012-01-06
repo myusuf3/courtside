@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block nav %}
+    <ul id="nav" class="grid_7">
+      <li><a href="/">Profile</a></li>
+      <li><a href="/search">Search for Games</a></li>
+      <li><a href="/create">Create New Game</a></li>
+      <li id="logout_button"><a href="/logout">Logout</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="clearfix">
+    </div>
+
+    <section id="single_form_container" class="grid_12">
+      <h2 id="login_heading">Edit Account Details</h2>
+      
+      <div id="login_methods" class="clearfix">
+        <form id="single_form" action="/profile/edit/" method="post" >
+
+          {% csrf_token %}
+          {{ form.as_p }}
+
+          <input class="input_button" type="submit" value="Submit" />
+        </form>
+
+      </div>
+    </section>
+{% endblock %}

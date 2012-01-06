@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Create New Game{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{STATIC_URL}}stylesheets/timePicker.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css" type="text/css" media="all" />
+{% endblock %}
+
+{% block nav %}
+    <ul id="nav" class="grid_7">
+    	<li><a href="/">Profile</a></li>
+        <li><a href="/search">Search for Games</a></li>
+        <li class="selected">Create New Game</li>
+        <li id="logout_button"><a href="/logout">Logout</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="clearfix">
+    </div>
+
+    <form  id="MyForm" width="600px"  action="/create/" method="post" >{% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="hidden" id="id_lng" name="lng" value=""/>
+        <input type="hidden" id="id_lat" name="lat" value=""/>
+        <input class="input_button" type="submit" value="Create" />
+    </form>
+
+    <div id="map" style="width:940px;"</div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>  
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&region=US"></script>  
+    <script type="text/javascript" src="http://code.google.com/apis/gears/gears_init.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/gmaps.js"></script>    
+    <script type="text/javascript" src="{{STATIC_URL}}js/jquery.timePicker.min.js"></script> 
+    <script type="text/javascript">
+        var previous_address;
+        var marker;
+        setInterval( "updateMap()", 3000);
+
+        function updateMap(){      
+
+            console.log("Entered Updating Map.")
+
+            var address = document.getElementById("id_address").value;
+
+            if (address != "" && address != previous_address){
+                
+                console.log("Address if valid")
+
+                if (initialLocation) {
+                    var latitude = initialLocation.lat();
+                    var longitude = initialLocation.lng();
+                    var lower = new google.maps.LatLng(latitude-0.05, longitude-0.05);
+                    var upper = new google.maps.LatLng(latitude+0.05, longitude+0.05);
+                    var bounds = new google.maps.LatLngBounds(lower, upper);
+                } else {
+                    var bounds = null
+                }
+                geocoder.geocode( { 'address': address, 'bounds' : bounds }, function(results, status) {
+                  if (status == google.maps.GeocoderStatus.OK) {
+                    $('#id_lng').val(results[0].geometry.location.lng())
+                    $('#id_lat').val(results[0].geometry.location.lat())
+                    console.log(results[0].geometry.location.lat())
+                    map.setCenter(results[0].geometry.location);
+                    if (marker){
+                        marker.setMap(null)
+                    }
+                    marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                    map.setZoom(13);
+                  } else {
+                    // alert("Geocode was not successful for the following reason: " + status);
+                    $('#id_lng').val('')
+                    $('#id_lat').val('')
+                  }
+                });
+
+                previous_address = address
+            }
+        }
+
+        $("#id_start_date").datepicker();
+        $("#id_start_time").timePicker();
+    </script>
+{% endblock %}
