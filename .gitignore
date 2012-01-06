@@ -1,4 +1,5 @@
 *.pyc
 *.db
 .DS_Store
-
+courtside/keys/keys.py
+keys.py
