@@ -3,6 +3,6 @@ from game.models import Game
 
 
 class GameAdmin(admin.ModelAdmin):
-	pass
+    pass
 
 admin.site.register(Game, GameAdmin)
