@@ -23,17 +23,17 @@ def home(request):
         baseball = Game.objects.filter(sport=Sport.objects.get(sport="baseball"), active="true")
         hockey = Game.objects.filter(sport=Sport.objects.get(sport="hockey"), active="true")
         basketball = Game.objects.filter(sport=Sport.objects.get(sport="basketball"), active="true")
-        return render(request, 'index.html', {'soccer':soccer, 'hockey':hockey, 'basketball':basketball, 'baseball':baseball, 'volleyball':volleyball})
+        return render(request, 'index.html', {'soccer': soccer, 'hockey': hockey, 'basketball': basketball, 'baseball': baseball, 'volleyball': volleyball})
 
     if request.user.is_staff:
         return HttpResponseRedirect('/admin/')
 
-    player = Player.objects.get(user = request.user)
+    player = Player.objects.get(user=request.user)
     sports = player.sports.all()
     joined_games = player.game_set.all()
     my_games = Game.objects.filter(owner=request.user)
     profile_pic_url = player.image_url
-    return render(request, 'profile.html', {'player': player, 'profile_pic_url': profile_pic_url, 'sports':sports, 'games':my_games|joined_games})
+    return render(request, 'profile.html', {'player': player, 'profile_pic_url': profile_pic_url, 'sports': sports, 'games': my_games | joined_games})
 
 
 @login_required(login_url='/login/')
@@ -72,13 +72,14 @@ def create(request):
 
 def game(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
-    owner = Player.objects.get(user = game.owner)
+    owner = Player.objects.get(user=game.owner)
     players = game.players.all()
-    number_of_players = len(players) + 1 #+1 For the owner
+    # +1 For the owner
+    number_of_players = len(players) + 1
     joined = False
 
     if request.user.is_authenticated():
-        current_player = Player.objects.get(user = request.user)
+        current_player = Player.objects.get(user=request.user)
         current_games = current_player.game_set.all()
         if game in current_games:
             joined = True
@@ -87,7 +88,7 @@ def game(request, game_id):
         current_player = None
 
     game.sport.name = game.sport.sport.lower()
-    return render(request, 'game.html', {'game':game, 'players':players, 'current_player':current_player, 'joined':joined, 'number_of_players':number_of_players, 'owner':owner})
+    return render(request, 'game.html', {'game': game, 'players': players, 'current_player': current_player, 'joined': joined, 'number_of_players': number_of_players, 'owner': owner})
 
 
 @login_required(login_url='/login/')
@@ -95,8 +96,6 @@ def join(request, game_id):
     game = get_object_or_404(Game, pk=game_id)
     player = Player.objects.get(user=request.user)
     game.players.add(player)
-    user = player.user
-    GameSignUpTask.delay(user, game)
     return HttpResponseRedirect('/game/%s/' % game_id)
 
 
@@ -123,7 +122,7 @@ def delete(request, game_id):
 
 @login_required(login_url='/login/')
 def search(request):
-    player = Player.objects.get(user = request.user)
+    player = Player.objects.get(user=request.user)
     sports = {}
     for sport in player.sports.all():
         sports[sport.sport] = True
@@ -134,4 +133,4 @@ def search(request):
     games['baseball'] = Game.objects.filter(sport=Sport.objects.get(sport="baseball"), active="true")
     games['hockey'] = Game.objects.filter(sport=Sport.objects.get(sport="hockey"), active="true")
     games['basketball'] = Game.objects.filter(sport=Sport.objects.get(sport="basketball"), active="true")
-    return render(request, 'search.html', {'games':games, 'sports':sports})
+    return render(request, 'search.html', {'games': games, 'sports': sports})
