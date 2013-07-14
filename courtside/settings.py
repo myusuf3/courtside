@@ -31,7 +31,7 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'courtside',                       # Or path to database file if using sqlite3.
         'USER': '',                       # Not used with sqlite3.
         'PASSWORD': '',                   # Not used with sqlite3.
