@@ -2,7 +2,7 @@
 Courtside: pick up sports app.
 ==================================================
 
-Make game plans and let all your friends know about it. 
+Make game plans and let all your friends know about it.
 
 ============
 Installation
@@ -16,7 +16,7 @@ Installation
 
 - You will need to create a keys file in keys module for the twitter and fb app keys, ones there are old and not used.
 
-.. image:: https://s3.amazonaws.com/screenshots.angel.co/ee/29287/ad7528fee77bb37dcbb4bea439dc5bae-original.png
+.. image:: http://cl.ly/image/3T1R3926260N/Screen%20Shot%202013-07-14%20at%204.55.54%20PM.png
 
 =============
 Contributions
@@ -27,7 +27,7 @@ All software contributions are welcome and encouraged.
 
 ========
 Twitter
-========    
+========
 
 - Mahdi Yusuf @myusuf3
 - Omar Shammas @omarshammas

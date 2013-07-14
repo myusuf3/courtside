@@ -11,7 +11,6 @@ from django.shortcuts import render
 from forms.forms import PlayerForm, NewPlayerForm, ProfileForm, PasswordForm, LoginForm
 from keys import keys
 from models import Player
-from register.tasks import SignUpTask
 from twython import Twython as twitter
 
 

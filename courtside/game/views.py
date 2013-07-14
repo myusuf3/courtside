@@ -5,7 +5,6 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from forms.forms import GameForm
 from game.models import Player, Sport, Game
-from register.tasks import GameSignUpTask
 
 
 def about(request):
