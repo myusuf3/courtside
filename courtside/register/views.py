@@ -14,6 +14,8 @@ from models import Player
 from twython import Twython as twitter
 
 
+from tasks import SignUpTask
+
 def get_gravatar(email, size=250):
     """ This method returns the url to the gravatar that
         corresponds to the email provided, at a default
@@ -133,7 +135,6 @@ def complete_sign_up(request):
                 player.sports = sports
                 user1 = authenticate(username=player.user.username, password=player.twitter_oauth_secret)
                 login(request, user1)
-                SignUpTask.delay(user)
                 return HttpResponseRedirect('/')
         else:
             form = PlayerForm()
@@ -161,12 +162,10 @@ def complete_sign_up(request):
                 user.save()
                 player.user = user
                 player.image_url = get_gravatar(player.user.email)
-                player.save()
                 player.sports = sports
+                player.save()
                 user = authenticate(username=player.user.username, password=player.facebook_oauth_token)
                 login(request, user)
-                print "SEND EMAIL"
-                SignUpTask.delay(user)
                 return HttpResponseRedirect('/')
     else:
         form = PlayerForm()
@@ -203,6 +202,7 @@ def new_register(request):
             player.sports = sports
             user = authenticate(username=player.user, password=password1)
             login(request, user)
+            # task here to email user
             SignUpTask.delay(user)
             return HttpResponseRedirect('/')
     else:

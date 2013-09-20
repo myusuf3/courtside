@@ -1,6 +1,10 @@
 # Django settings for courtside project.
 import os
 
+import djcelery
+djcelery.setup_loader()
+
+
 #Broker Settings
 BROKER_HOST = "localhost"
 BROKER_PORT = 5672
@@ -13,8 +17,8 @@ TEMPLATE_DEBUG = DEBUG
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = os.environ.get('EMAIL')
+EMAIL_HOST_PASSWORD = os.environ.get('PASSWORD')
 EMAIL_PORT = 587
 
 CELERY_ALWAYS_EAGER = False
@@ -148,6 +152,7 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'debug_toolbar',
     'south',
+    'djcelery'
 )
 
 # A sample logging configuration. The only tangible logging
