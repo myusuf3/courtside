@@ -2,6 +2,11 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+from rest_framework.urlpatterns import format_suffix_patterns
+from game import api
+
+
+
 urlpatterns = patterns(
     '',
     url(r'^about/', 'game.views.about', name='about'),
@@ -42,4 +47,10 @@ urlpatterns = patterns(
 
     # comments application
     (r'^comments/', include('django.contrib.comments.urls')),
+
+    # API
+    url(r'^api/games/$', api.GameList.as_view()),
+    url(r'^api/games/(?P<pk>[0-9]+)/$', api.GameDetail.as_view()),
 )
+
+urlpatterns = format_suffix_patterns(urlpatterns)

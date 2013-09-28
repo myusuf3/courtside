@@ -152,7 +152,8 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'debug_toolbar',
     'south',
-    'djcelery'
+    'djcelery',
+    'rest_framework',
 )
 
 # A sample logging configuration. The only tangible logging

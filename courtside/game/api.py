@@ -1,65 +1,28 @@
-from django.contrib.auth.models import User
-from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
-from tastypie import fields
+from .models import Game
+from .serializers import GameSerializer
 
-from game.models import Game
-from register.models import Sport, Player
+from django.http import Http404
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
-class SportResource(ModelResource):
-    class Meta:
-        queryset = Sport.objects.all()
-        resource_name = 'sport'
-        allowed_methods = ['get']
-        include_resource_uri = False
-        excludes = ['id']
-        filtering = {
-            'sport': ('exact')
-        }
+class GameList(APIView):
 
+    def get(self, request, format=None):
+        games = Game.objects.filter(active=True)
+        serialized_games = GameSerializer(games, many=True)
+        return Response(serialized_games.data)
 
-class UserResource(ModelResource):
-    class Meta:
-        queryset = User.objects.all()
-        resource_name = 'user'
-        excludes = ['password', 'is_active', 'is_staff', 'is_superuser', 'id']
-        allowed_methods = ['get']
-        include_resource_uri = False
-        allowed_methods = ['get']
-        filtering = {
-            'username': ALL,
-            'email': ALL
-        }
+class GameDetail(APIView):
+
+    def get_object(self, pk):
+        try:
+            return Game.objects.get(pk=pk)
+        except Game.DoesNotExist:
+            raise Http404
 
 
-class PlayerResource(ModelResource):
-    user = fields.ForeignKey(UserResource, 'user', full=True)
-    sports = fields.ManyToManyField(SportResource, 'sports', full=True)
-    class Meta:
-        include_resource_uri = False
-        queryset = Player.objects.all()
-        resource_name = 'player'
-        fields = ['sports', 'image_url', 'gender', 'user']
-        allowed_methods = ['get']
-        filtering = {
-            'user': ALL_WITH_RELATIONS,
-            'gender' : ALL,
-            'sports' : ALL_WITH_RELATIONS,
-        }
-
-
-class GameResource(ModelResource):
-    sport = fields.ForeignKey(SportResource, 'sport', full=True)
-    owner = fields.ForeignKey(UserResource, 'owner', full=True)
-    players = fields.ManyToManyField(PlayerResource, 'players', full=True)
-    class Meta:
-        resource_name = 'game'
-        queryset = Game.objects.all()
-        include_resource_uri = False
-        allowed_methods = ['get']
-        filtering = {
-            'game': ALL_WITH_RELATIONS,
-            'owner': ALL_WITH_RELATIONS,
-            'players' : ALL_WITH_RELATIONS,
-            'sport' : ALL_WITH_RELATIONS,
-        }
+    def get(self, request, pk, format=None):
+        game = self.get_object(pk)
+        serialized_game = GameSerializer(game)
+        return Response(serialized_game.data)
