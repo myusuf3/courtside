@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load comments %}
+{% load time_tags %}
 
 {% block title %}{{game.sport}} game at {{game.start_date_and_time}} {{game.address}}{% endblock %}
 
@@ -32,7 +33,7 @@
       </div>
       <div id="game_date_time" class="game_heading">
         <h4 class="info_label">Date &amp; Time</h4>
-        <p>{{game.start_date_and_time}}</p>
+        <p>{%  localize_time game.start_date_and_time %}</p>
       </div>
       <div id="game_restriction" class="game_heading">
         <h4 class="info_label">Capacity &amp; Restrictions</h4>
@@ -42,7 +43,7 @@
             <li>{{ game.restrictions }}</li>
           {% endif %}
         </ul>
-      </div>          
+      </div>
     </section>
 
     <section id="game_col_left" class="grid_6">
@@ -56,7 +57,7 @@
           {% else %}
               <div id="join_game"><a href="/join/game/{{game.id}}/">Join this Game</a></div>
           {% endif%}
-  	    {% endif%}  
+  	    {% endif%}
 
         <div class="game_players game_heading clearfix">
           {% if number_of_players > 1 %}
@@ -64,7 +65,7 @@
           {% else %}
             <h4 class="game_info_title">Players signed up ({{ number_of_players }} player)</h4>
           {% endif%}
-          
+
           <ul id="game_players_list">
             <li class="game_owner"><img src="{{owner.image_url}}"  title="{{owner.user.first_name}} {{owner.user.last_name}}"/></li>
             {% for p in players %}
@@ -74,12 +75,12 @@
         </div>
         <div id="game_comments" class="game_heading">
           <h4 class="info_label">Comments</h4>
-      
+
         <!--  <p class="info">Coming Soon!</p> -->
-        
+
 
 <!--
-             
+
     <table>
       <form action="{% comment_form_target %}" method="post">
         {% csrf_token %}
@@ -98,7 +99,7 @@
           </td>
         </tr>
       </form>
-    </table> 
+    </table>
 {% render_comment_list for game %}
 -->
 
@@ -109,7 +110,7 @@
 
 
          <ul id="game_comments_list">
-            <li> 
+            <li>
             {% get_comment_form for game as form %}
               <form id="game_comment_form" action="{% comment_form_target %}" method="post">{% csrf_token %}
                <!--  <textarea id="game_comment" class="input_text" rows="2" maxlength="140" size="140"></textarea>   -->
@@ -146,12 +147,12 @@
             <li>
               <p class="comment_content"> {{comment.comment }}</p>
               <p class="info">
-                <span class="comment_author"> {{comment.user_name}} </span> 
+                <span class="comment_author"> {{comment.user_name}} </span>
                 &#183; <span class="comment_date">{{comment.submit_date}}</span>
               </p>
             </li>
             {% endfor %}
-          </ul> 
+          </ul>
         </div>
       </div>
     </section>
@@ -160,7 +161,7 @@
 
 
 {% block scripts %}
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&region=US"></script> 
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&region=US"></script>
     <script>
         var game_location = new google.maps.LatLng( {{game.latitude}}, {{game.longitude}});
         var map;
@@ -177,6 +178,6 @@
                     map: map,
                     position: game_location
                 });
-        });   
+        });
     </script>
 {% endblock %}

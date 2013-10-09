@@ -70,8 +70,8 @@ def create(request):
     return render(request, 'create.html', {'form': form})
 
 
-def game(request, game_id):
-    game = get_object_or_404(Game, pk=game_id)
+def game(request, id):
+    game = get_object_or_404(Game, pk=id)
     owner = Player.objects.get(user=game.owner)
     players = game.players.all()
     # +1 For the owner
@@ -88,7 +88,15 @@ def game(request, game_id):
         current_player = None
 
     game.sport.name = game.sport.sport.lower()
-    return render(request, 'game.html', {'game': game, 'players': players, 'current_player': current_player, 'joined': joined, 'number_of_players': number_of_players, 'owner': owner})
+    return render(request, 'game.html',
+        {'game': game,
+        'players': players,
+        'current_player': current_player,
+        'joined': joined,
+        'number_of_players': number_of_players,
+        'owner': owner,
+        'timezone': 'US/Eastern'}
+        )
 
 
 @login_required(login_url='/login/')
