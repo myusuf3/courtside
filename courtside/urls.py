@@ -37,7 +37,7 @@ urlpatterns = patterns(
     url(r'^logout/', 'register.views.logout_bro', name='logout'),
     url(r'^login/', 'register.views.login_bro', name='logout'),
 
-
+    url(r'^ember/', 'game.views.ember', name='ember'),
     url(r'^create/', 'game.views.create', name='create'),
     url(r'^search/', 'game.views.search', name='search'),
     url(r'^game/(?P<id>\d+)/$', 'game.views.game', name='game'),

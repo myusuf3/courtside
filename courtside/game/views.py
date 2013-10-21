@@ -11,6 +11,9 @@ def about(request):
     return render(request, 'about.html')
 
 
+def ember(request):
+    return render(request, 'ember.html', {})
+
 def home(request):
     """ This method deals with the profile for the user who just signed in.
         It will display upcoming games that the user is interested in and games they said they would be part of.

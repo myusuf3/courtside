@@ -26,7 +26,7 @@
           <input id="search" class="input_text" type="text" />
           <input class="input_button" type="button" value="Search" onclick="codeAddress()">
         </form>
-        
+
         <ul class="tags">
           <li class="baseball hide"><input id="baseball" type="button" value="Baseball"></li>
           <li class="basketball"><input id="basketball" type="button" value="Basketball"></li>
@@ -34,14 +34,14 @@
           <li class="soccer"><input id="soccer" type="button" value="Soccer"></li>
           <li class="volleyball"><input id="volleyball" type="button" value="Volleyball"></li>
         </ul>
-       
+
        <form id="map_filter_time" class="clearfix">
           <h4>Filter by Date</h4>
           <label for="id_start_date">Start Date:</label><input type="text" name="start_date" id="id_start_date" value="mm/dd/yyyy"/>
           <br/>
           <label for="id_end_date">End Date:</label><input type="text" name="end_date" id="id_end_date" value="mm/dd/yyyy"/>
        </form>
-        
+
        <!--<form id="map_filter_time" class="clearfix">
           <h4>Filter by time</h4>
           <label for="time_from">from</label>
@@ -78,8 +78,7 @@
 {% block scripts %}
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&region=US"></script>
-  <script type="text/javascript" src="http://code.google.com/apis/gears/gears_init.js"></script>
-  <script type="text/javascript" src="{{STATIC_URL}}js/gmaps.js"></script>    
+  <script type="text/javascript" src="{{STATIC_URL}}js/gmaps.js"></script>
   <script type="text/javascript" src="{{STATIC_URL}}js/search.js"></script>
   <script>
     var games = {
@@ -124,7 +123,7 @@
 
                 {% for g in game %}
                     game_location = new google.maps.LatLng({{g.latitude}},{{g.longitude}});
-                
+
                     var mark = new google.maps.Marker({
                             map: map,
                             position: game_location,
@@ -139,7 +138,7 @@
                             window.location.replace("/game/" + mark.title);
                         }
                       })(mark));
-                    
+
                     date = new Date('{{g.start_date_and_time.isoformat}}');
                     game = new Game({{g.id}},date,"{{g.address}}",mark);
                     games['{{sport}}'].push(game);
@@ -192,7 +191,7 @@
             var games_exist = false;
            $(".summary_list").remove();
            $("#search_results").append('<ul class="summary_list"></ul>');
-            
+
            for (sport in visible){
                if (!visible[sport]){
                    continue;
@@ -204,15 +203,15 @@
                         game_info = '<li class="'+sport+'_icon">'
                         game_info += '<a href="/game/'+ games[sport][index].game_id + '" class="game_title"><span>'+sport+'</span></a>'
                         game_info += '<p class="game_summary_detail">' + games[sport][index].start_date_and_time + ' at ' + games[sport][index].address + '</p></li>'
-                        $(".summary_list").append(game_info);            
-                    }      
+                        $(".summary_list").append(game_info);
+                    }
                }
            }
 
            if (!games_exist){
-                $(".summary_list").append('<p>No games are available.</p>');            
-            }  
-            
+                $(".summary_list").append('<p>No games are available.</p>');
+            }
+
         };
 
         function filter_by_date(start, end){
@@ -222,16 +221,16 @@
                }
 
                for (index in games[sport]){
-                    if ( ((start && !end) && games[sport][index].start_date_and_time >= start) 
-                         || ((start && end) && games[sport][index].start_date_and_time >= start && games[sport][index].start_date_and_time <= end) 
+                    if ( ((start && !end) && games[sport][index].start_date_and_time >= start)
+                         || ((start && end) && games[sport][index].start_date_and_time >= start && games[sport][index].start_date_and_time <= end)
                          || ((!start && end) && end >= games[sport][index].start_date_and_time)
                     ){
-                        games[sport][index].marker.setVisible(true);      
+                        games[sport][index].marker.setVisible(true);
                     } else {
-                        games[sport][index].marker.setVisible(false);      
+                        games[sport][index].marker.setVisible(false);
                     }
                }
-           }  
+           }
         };
 
         $("#id_start_date").datepicker({

@@ -2,8 +2,7 @@
 
 {% block scripts %}
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&region=US"></script>
-  <script type="text/javascript" src="http://code.google.com/apis/gears/gears_init.js"></script>
-  <script type="text/javascript" src="{{STATIC_URL}}js/gmaps.js"></script>    
+  <script type="text/javascript" src="{{STATIC_URL}}js/gmaps.js"></script>
   <script type="text/javascript" src="{{STATIC_URL}}js/search.js"></script>
   <script>
     var basketball = new Array();
@@ -36,7 +35,7 @@
             var game_location;
             {% for b in basketball %}
                 game_location = new google.maps.LatLng({{b.latitude}},{{b.longitude}});
-                
+
                 var mark = new google.maps.Marker({
                         map: map,
                         position: game_location,
@@ -220,6 +219,6 @@
         });
 
     });
-    
+
   </script>
 {% endblock %}

@@ -1,0 +1,51 @@
+{% load time_tags %}
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+            <script type="text/x-handlebars">
+                {% verbatim %}
+                <section id="about_courtside" class="grid_7">
+                <li>{{#link-to 'about'}}About{{/link-to}}</li>
+                <li>{{#link-to 'games'}}Games{{/link-to}}</li>
+                    </section>
+                {{outlet}}
+                {% endverbatim %}
+
+            </script>
+
+            <script type="text/x-handlebars" id="games">
+                {% verbatim %}
+                <h2> All Current Games</h2>
+                {{#each}}
+                <p>{{owner.first_name}} organized a game of basketball on {{start_date_and_time}} with the requirement that {{restrictions}}</p>
+
+                {{/each}}
+                {% endverbatim %}
+            </script>
+
+            <script type="text/x-handlebars" id="about">
+                  <h2 class="headline">Get active. Meet new friends. And live a healthier lifestyle. </h2>
+                  <p>With Courtside you can easily plan, organize, and play pickup sports that you actually enjoy, instead of wrestling with weights at the gym. Meeting your new year resolutions wont be so difficult this year!</p>
+                  <p>Cheers,</p>
+                  <p id="about_from_team">The Courtside Team </p>
+            </script>
+
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+            <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+            <script src="{{STATIC_URL}}js/jquery-1.10.2.min.js"></script>
+            <script src="{{STATIC_URL}}js/handlebars-1.0.0.js"></script>
+            <script src="{{STATIC_URL}}js/ember.js"></script>
+            <script src="{{STATIC_URL}}js/ember-data.js"></script>
+            <script src="{{STATIC_URL}}js/app.js"></script>
+            <script src="js/main.js"></script>
+    </body>
+</html>

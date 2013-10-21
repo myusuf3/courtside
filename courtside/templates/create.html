@@ -33,24 +33,23 @@
 {% endblock %}
 
 {% block scripts %}
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>  
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&region=US"></script>  
-    <script type="text/javascript" src="http://code.google.com/apis/gears/gears_init.js"></script>
-    <script type="text/javascript" src="{{STATIC_URL}}js/gmaps.js"></script>    
-    <script type="text/javascript" src="{{STATIC_URL}}js/jquery.timePicker.min.js"></script> 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&region=US"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/gmaps.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/jquery.timePicker.min.js"></script>
     <script type="text/javascript">
         var previous_address;
         var marker;
         setInterval( "updateMap()", 3000);
 
-        function updateMap(){      
+        function updateMap(){
 
             console.log("Entered Updating Map.")
 
             var address = document.getElementById("id_address").value;
 
             if (address != "" && address != previous_address){
-                
+
                 console.log("Address if valid")
 
                 if (initialLocation) {
