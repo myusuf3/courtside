@@ -14,9 +14,9 @@
             <script type="text/x-handlebars">
                 {% verbatim %}
                 <section id="about_courtside" class="grid_7">
-                <li>{{#link-to 'about'}}About{{/link-to}}</li>
-                <li>{{#link-to 'games'}}Games{{/link-to}}</li>
-                    </section>
+                    <li>{{#link-to 'about'}}About{{/link-to}}</li>
+                    <li>{{#link-to 'games'}}Games{{/link-to}}</li>
+                </section>
                 {{outlet}}
                 {% endverbatim %}
 
@@ -26,7 +26,7 @@
                 {% verbatim %}
                 <h2> All Current Games</h2>
                 {{#each}}
-                <p>{{owner.first_name}} organized a game of basketball on {{start_date_and_time}} with the requirement that {{restrictions}}</p>
+                <p>{{owner.first_name}} organized a game of {{sport.sport}} on {{start_date_and_time}} with the requirement that {{restrictions}}</p>
 
                 {{/each}}
                 {% endverbatim %}
@@ -46,6 +46,5 @@
             <script src="{{STATIC_URL}}js/ember.js"></script>
             <script src="{{STATIC_URL}}js/ember-data.js"></script>
             <script src="{{STATIC_URL}}js/app.js"></script>
-            <script src="js/main.js"></script>
     </body>
 </html>

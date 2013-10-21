@@ -12,17 +12,6 @@ class VerbatimNode(template.Node):
     def render(self, context):
         return self.text
 
-def localize_datetime(timezone, string):
-    gametime = parse(string)
-    gametime.shift(timezone)
-    return gametime.datetime.strftime("%Y-%m-%d %I:%M %p")
-
-@register.simple_tag(takes_context=True)
-def localize_time(context, string):
-    string = str(string)
-    timezone = context['timezone']
-    return localize_datetime(timezone, string)
-
 @register.tag
 def verbatim(parser, token):
     text = []
@@ -42,3 +31,14 @@ def verbatim(parser, token):
                 text[-1:-1] = [' ']
             text.append(' %}')
     return VerbatimNode(''.join(text))
+
+def localize_datetime(timezone, string):
+    gametime = parse(string)
+    gametime.shift(timezone)
+    return gametime.datetime.strftime("%Y-%m-%d %I:%M %p")
+
+@register.simple_tag(takes_context=True)
+def localize_time(context, string):
+    string = str(string)
+    timezone = context['timezone']
+    return localize_datetime(timezone, string)
