@@ -6,11 +6,7 @@ djcelery.setup_loader()
 
 
 #Broker Settings
-BROKER_HOST = "localhost"
-BROKER_PORT = 5672
-BROKER_USER = "guest"
-BROKER_PASSWORD = "guest"
-BROKER_VHOST = "/"
+BROKER_URL = 'amqp://guest:guest@localhost:5672/'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -22,6 +18,8 @@ EMAIL_HOST_PASSWORD = os.environ.get('PASSWORD')
 EMAIL_PORT = 587
 
 CELERY_ALWAYS_EAGER = False
+
+CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
 
 INTERNAL_IPS = ('127.0.0.1',)
 
