@@ -154,7 +154,6 @@ INSTALLED_APPS = (
     'south',
     'djcelery',
     'rest_framework',
-    'debug_panel'
 )
 
 # A sample logging configuration. The only tangible logging
