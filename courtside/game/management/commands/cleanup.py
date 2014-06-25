@@ -1,5 +1,4 @@
 from django.core.management.base import BaseCommand
-from register.tasks import CleanGamesTask
 from game.models import Game
 
 
