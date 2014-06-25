@@ -1,6 +1,8 @@
 # Django settings for courtside project.
 import os
 
+import dj_database_url
+
 if os.environ.get('PRODUCTION') == 'True':
     DEBUG = False
 else:
