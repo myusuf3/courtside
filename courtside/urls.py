@@ -37,13 +37,12 @@ urlpatterns = patterns(
     url(r'^logout/', 'register.views.logout_bro', name='logout'),
     url(r'^login/', 'register.views.login_bro', name='logout'),
 
-    url(r'^ember/', 'game.views.ember', name='ember'),
     url(r'^create/', 'game.views.create', name='create'),
     url(r'^search/', 'game.views.search', name='search'),
-    url(r'^game/(?P<id>\d+)/$', 'game.views.game', name='game'),
-    url(r'^join/game/(?P<id>\d+)/$', 'game.views.join', name='join'),
-    url(r'^leave/game/(?P<id>\d+)/$', 'game.views.leave', name='leave'),
-    url(r'^delete/game/(?P<id>\d+)/$', 'game.views.delete', name='delete'),
+    url(r'^game/(?P<game_id>\d+)/$', 'game.views.game', name='game'),
+    url(r'^join/game/(?P<game_id>\d+)/$', 'game.views.join', name='join'),
+    url(r'^leave/game/(?P<game_id>\d+)/$', 'game.views.leave', name='leave'),
+    url(r'^delete/game/(?P<game_id>\d+)/$', 'game.views.delete', name='delete'),
 
     # comments application
     (r'^comments/', include('django.contrib.comments.urls')),
