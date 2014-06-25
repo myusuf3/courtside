@@ -1,0 +1,87 @@
+[
+    {
+        "pk": 1,
+        "model": "register.sport",
+        "fields": {
+            "name": "basketball"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "register.sport",
+        "fields": {
+            "name": "hockey"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "register.sport",
+        "fields": {
+            "name": "baseball"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "register.sport",
+        "fields": {
+            "name": "volleyball"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "register.sport",
+        "fields": {
+            "name": "soccer"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "register.player",
+        "fields": {
+            "gender": "M",
+            "facebook_oauth_token": "",
+            "sports": [
+                1,
+                2,
+                5
+            ],
+            "twitter_oauth_secret": "",
+            "twitter_oauth_token": "",
+            "user": 2,
+            "image_url": "http://www.gravatar.com/avatar/240f00368979a3327c854f560001c42e?s=250"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "register.player",
+        "fields": {
+            "gender": "F",
+            "facebook_oauth_token": "",
+            "sports": [
+                3,
+                4,
+                5
+            ],
+            "twitter_oauth_secret": "",
+            "twitter_oauth_token": "",
+            "user": 3,
+            "image_url": "http://www.gravatar.com/avatar/240f00368979a3327c854f560001c42e?s=250"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "register.player",
+        "fields": {
+            "gender": "Q",
+            "facebook_oauth_token": "",
+            "sports": [
+                1,
+                4
+            ],
+            "twitter_oauth_secret": "",
+            "twitter_oauth_token": "",
+            "user": 4,
+            "image_url": "http://www.gravatar.com/avatar/240f00368979a3327c854f560001c42e?s=250"
+        }
+    }
+]

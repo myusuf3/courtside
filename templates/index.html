@@ -1,0 +1,119 @@
+{% extends "base_map.html" %}
+
+{% block content %}
+    <section id="main" role="main">
+      <div id="map" class="grid_9"></div>
+      <div id="map_search" class="grid_3">
+        <h2 id="map_heading">Browse upcoming recreational games.</h2>
+        <form id="search_map" class="clearfix">
+          <label for="search">Search a Location</label>
+          <input id="search" class="input_text" type="text"/>
+          <input class="input_button" type="button" value="Search" onclick="codeAddress()">
+        </form>
+        
+        <ul class="tags">
+          <li class="baseball hide"><input id="baseball" type="button" value="Baseball"/></li>
+          <li class="basketball"><input id="basketball" type="button" value="Basketball"/></li>
+          <li class="hockey"><input id="hockey" type="button" value="Hockey"/></li>
+          <li class="soccer"><input id="soccer" type="button" value="Soccer"/></li>
+          <li class="volleyball"><input id="volleyball" type="button" value="Volleyball"/></li>
+        </ul>
+        
+        <!-- <form id="map_filter_time" class="clearfix">
+          <h4>Filter by time</h4>
+          <label for="time_from">from</label>
+          <select id="time_from">
+            <option>-</option>
+            <option>00:00</option>
+            <option>01:00</option>
+            <option>02:00</option>
+            <option>03:00</option>
+            <option>04:00</option>
+          </select>
+
+          <label for="">to </label>
+          <select id="time_to">
+            <option>-</option>
+            <option>00:00</option>
+            <option>01:00</option>
+            <option>02:00</option>
+            <option>03:00</option>
+            <option>04:00</option>
+          </select>
+        </form> -->
+      </div>
+    </section>
+
+    <section id="signup" class="grid_12">
+      <h3 class="signup_heading">Need more players for soccer next week? Wish you could join a game?</h4>
+      <h2 class="signup_heading">Post and search local games in your neighbourhood.</h2>
+      
+      <div id="signup_methods" class="clearfix">
+        <form id="signup_email"  action="/login/signup/" method="get">
+          <label for="input_text_email">Email</label>
+          <input id="input_text_email" class="input_text" type="email" placeholder="Your email" name="email" />
+          <input class="input_button" type="submit" value="Sign me up!" />
+        </form>
+        <ul id="signup_thirdparty">
+          <li class="twitter button"><a href="/login/twitter/">Sign up with Twitter</a></li>
+          <li class="facebook button"><a href="/login/facebook/">Sign up with Facebook</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="this_week" class="grid_5 group">
+      <div class="results_title">This Week</div>
+        <p class="info">Coming Soon!</p>
+      <!--
+      <ul class="summary_list">
+        <li class="basketball_icon">
+          <a href="/" class="game_title"><span>Basketball</span></a>
+          <p class="game_summary_detail">Thurs July 29, 2011 - 6:00AM at Ravens Nest</p>
+        </li>
+        <li class="soccer_icon">
+          <a href="/" class="game_title"><span>Soccer</span></a>
+          <p class="game_summary_detail">Thurs July 29, 2011 - 6:00AM at Ravens Nest</p>
+        </li>
+        <li class="baseball_icon">
+          <a href="/" class="game_title"><span>Baseball</span></a>
+          <p class="game_summary_detail">Thurs July 29, 2011 - 6:00AM at Ravens Nest</p>
+        </li>
+        <li class="volleyball_icon">
+          <a href="/" class="game_title"><span>Volleyball</span></a>
+          <p class="game_summary_detail">Thurs July 29, 2011 - 6:00AM at Ravens Nest</p>
+        </li>
+        <li class="view_more_games">
+          <a href="">view more games</a>
+        </li>
+      </ul>
+      -->
+    </section>
+    
+    <section id="next_week" class="grid_5 group">
+      <div class="results_title">Next Week</div>
+        <p class="info">Coming Soon!</p>
+      <!--
+      <ul class="summary_list">
+        <li class="basketball_icon">
+          <a href="/" class="game_title"><span>Basketball</span></a>
+          <p class="game_summary_detail">Thurs July 29, 2011 - 6:00AM at Ravens Nest</p>
+        </li>
+        <li class="soccer_icon">
+          <a href="/" class="game_title"><span>Soccer</span></a>
+          <p class="game_summary_detail">Thurs July 29, 2011 - 6:00AM at Ravens Nest</p>
+        </li>
+        <li class="baseball_icon">
+          <a href="/" class="game_title"><span>Baseball</span></a>
+          <p class="game_summary_detail">Thurs July 29, 2011 - 6:00AM at Ravens Nest</p>
+        </li>
+        <li class="volleyball_icon">
+          <a href="/" class="game_title"><span>Volleyball</span></a>
+          <p class="game_summary_detail">Thurs July 29, 2011 - 6:00AM at Ravens Nest</p>
+        </li>
+        <li class="view_more_games">
+          <a href="">view more games</a>
+        </li>
+      </ul>
+      -->
+    </section>
+{% endblock %}

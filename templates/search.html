@@ -1,0 +1,259 @@
+{% extends "base.html" %}
+
+{% block title %}Search Games{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{STATIC_URL}}stylesheets/timePicker.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/base/jquery-ui.css" type="text/css" media="all" />
+{% endblock %}
+
+{% block nav %}
+    <ul id="nav" class="grid_7">
+      <li><a href="/">Profile</a></li>
+      <li class="selected">Search for Games</li>
+      <li><a href="/create"> Create New Game </a></li>
+      <li id="logout_button"><a href="/logout">Logout</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <section id="main" role="main">
+      <div id="map" class="grid_9"></div>
+      <div id="map_search" class="grid_3">
+        <h2 id="map_heading">Browse upcoming recreational games.</h2>
+        <form id="search_map" class="clearfix">
+          <label for="search">Search a Location</label>
+          <input id="search" class="input_text" type="text" />
+          <input class="input_button" type="button" value="Search" onclick="codeAddress()">
+        </form>
+
+        <ul class="tags">
+          <li class="baseball hide"><input id="baseball" type="button" value="Baseball"></li>
+          <li class="basketball"><input id="basketball" type="button" value="Basketball"></li>
+          <li class="hockey"><input id="hockey" type="button" value="Hockey"></li>
+          <li class="soccer"><input id="soccer" type="button" value="Soccer"></li>
+          <li class="volleyball"><input id="volleyball" type="button" value="Volleyball"></li>
+        </ul>
+
+       <form id="map_filter_time" class="clearfix">
+          <h4>Filter by Date</h4>
+          <label for="id_start_date">Start Date:</label><input type="text" name="start_date" id="id_start_date" value="mm/dd/yyyy"/>
+          <br/>
+          <label for="id_end_date">End Date:</label><input type="text" name="end_date" id="id_end_date" value="mm/dd/yyyy"/>
+       </form>
+
+       <!--<form id="map_filter_time" class="clearfix">
+          <h4>Filter by time</h4>
+          <label for="time_from">from</label>
+          <select id="time_from">
+            <option>-</option>
+            <option>00:00</option>
+            <option>01:00</option>
+            <option>02:00</option>
+            <option>03:00</option>
+            <option>04:00</option>
+          </select>
+
+          <label for="">to </label>
+          <select id="time_to">
+            <option>-</option>
+            <option>00:00</option>
+            <option>01:00</option>
+            <option>02:00</option>
+            <option>03:00</option>
+            <option>04:00</option>
+          </select>
+        </form>-->
+      </div>
+    </section>
+
+
+    <section id="search_results" class="grid_12 group">
+      <div class="results_title">Search Results</div>
+      <ul class="summary_list">
+      </ul>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&region=US"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/gmaps.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/search.js"></script>
+  <script>
+    var games = {
+        'basketball': new Array(),
+        'hockey': new Array(),
+        'soccer': new Array(),
+        'volleyball': new Array(),
+        'baseball': new Array()
+    };
+
+    var visible = {
+        'basketball': false,
+        'hockey': false,
+        'soccer': false,
+        'volleyball': false,
+        'baseball': false
+    };
+
+    var urls = {
+        'basketball': 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=+|f0652a|f0652a',
+        'hockey': 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=+|01b0c5|01b0c5',
+        'soccer': 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=+|08ab50|08ab50',
+        'volleyball': 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=+|92278f|92278f',
+        'baseball': 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=+|ffb518|ffb518'
+    };
+
+    function Game(game_id, date_and_time, address, marker, visible) {
+        this.game_id = game_id;
+        this.start_date_and_time = date_and_time;
+        this.address = address;
+        this.marker = marker;
+        this.visible = visible;
+    };
+
+    $(function() {
+        $(document).ready(function(){
+            {% for sport, game in games.items %}
+
+                {% if sport in sports %}
+                    visible['{{sport}}'] = true;
+                {% endif %}
+
+                {% for g in game %}
+                    game_location = new google.maps.LatLng({{g.latitude}},{{g.longitude}});
+
+                    var mark = new google.maps.Marker({
+                            map: map,
+                            position: game_location,
+                            title: '{{g.id}}',
+                            icon: urls['{{sport}}'],
+                            visible: visible['{{sport}}'],
+                            animation: google.maps.Animation.BOUNCE
+                    });
+
+                    google.maps.event.addListener(mark, 'click', (function(mark) {
+                        return function() {
+                            window.location.replace("/game/" + mark.title);
+                        }
+                      })(mark));
+
+                    date = new Date('{{g.start_date_and_time.isoformat}}');
+                    game = new Game({{g.id}},date,"{{g.address}}",mark);
+                    games['{{sport}}'].push(game);
+                {% endfor %}
+            {% endfor %}
+
+            update_search();
+        });
+
+
+        function change_markers(sport){
+
+            if (!visible[sport]){
+                visible[sport] = true;
+                for(index in games[sport]) {
+                    games[sport][index].marker.setVisible(true);
+                }
+                $('.'+sport).removeClass('hide')
+            } else {
+                visible[sport] = false;
+                for(index in games[sport]) {
+                    games[sport][index].marker.setVisible(false);
+                }
+                $('.'+sport).addClass('hide')
+            }
+        };
+
+        $('#basketball').click(function () {
+            change_markers('basketball');
+        });
+
+        $('#hockey').click(function () {
+            change_markers('hockey');
+        });
+
+        $('#soccer').click(function () {
+            change_markers('soccer');
+        });
+
+        $('#baseball').click(function () {
+            change_markers('baseball');
+        });
+
+        $('#volleyball').click(function () {
+            change_markers('volleyball');
+        });
+
+
+        function update_search(){
+            var games_exist = false;
+           $(".summary_list").remove();
+           $("#search_results").append('<ul class="summary_list"></ul>');
+
+           for (sport in visible){
+               if (!visible[sport]){
+                   continue;
+               }
+
+               for (index in games[sport]){
+                    if ( games[sport][index].marker.getVisible() ){
+                        games_exist = true;
+                        game_info = '<li class="'+sport+'_icon">'
+                        game_info += '<a href="/game/'+ games[sport][index].game_id + '" class="game_title"><span>'+sport+'</span></a>'
+                        game_info += '<p class="game_summary_detail">' + games[sport][index].start_date_and_time + ' at ' + games[sport][index].address + '</p></li>'
+                        $(".summary_list").append(game_info);
+                    }
+               }
+           }
+
+           if (!games_exist){
+                $(".summary_list").append('<p>No games are available.</p>');
+            }
+
+        };
+
+        function filter_by_date(start, end){
+          for (sport in visible){
+               if (!visible[sport]){
+                   continue;
+               }
+
+               for (index in games[sport]){
+                    if ( ((start && !end) && games[sport][index].start_date_and_time >= start)
+                         || ((start && end) && games[sport][index].start_date_and_time >= start && games[sport][index].start_date_and_time <= end)
+                         || ((!start && end) && end >= games[sport][index].start_date_and_time)
+                    ){
+                        games[sport][index].marker.setVisible(true);
+                    } else {
+                        games[sport][index].marker.setVisible(false);
+                    }
+               }
+           }
+        };
+
+        $("#id_start_date").datepicker({
+           onSelect: function(dateText, inst) {
+                start = new Date(dateText);
+                end = new Date(document.getElementById("id_end_date").value);
+                if (end == "Invalid Date") end = null;
+                filter_by_date(start, end);
+                update_search();
+           }
+        });
+
+
+        $("#id_end_date").datepicker({
+           onSelect: function(dateText, inst) {
+                start = new Date(document.getElementById("id_start_date").value);
+                end = new Date(dateText);
+                if (start == "Invalid Date") start = null;
+                filter_by_date(start, end);
+                update_search();
+           }
+        });
+
+    });
+  </script>
+{% endblock %}

@@ -1,0 +1,997 @@
+[
+    {
+        "pk": 12,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "comments",
+            "name": "comments",
+            "app_label": "game"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "contenttype",
+            "name": "content type",
+            "app_label": "contenttypes"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "crontabschedule",
+            "name": "crontab",
+            "app_label": "djcelery"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "game",
+            "name": "game",
+            "app_label": "game"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "group",
+            "name": "group",
+            "app_label": "auth"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "intervalschedule",
+            "name": "interval",
+            "app_label": "djcelery"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "logentry",
+            "name": "log entry",
+            "app_label": "admin"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "message",
+            "name": "message",
+            "app_label": "auth"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "periodictask",
+            "name": "periodic task",
+            "app_label": "djcelery"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "periodictasks",
+            "name": "periodic tasks",
+            "app_label": "djcelery"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "permission",
+            "name": "permission",
+            "app_label": "auth"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "player",
+            "name": "player",
+            "app_label": "register"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "session",
+            "name": "session",
+            "app_label": "sessions"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "site",
+            "name": "site",
+            "app_label": "sites"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "sport",
+            "name": "sport",
+            "app_label": "register"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "taskstate",
+            "name": "task",
+            "app_label": "djcelery"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "taskmeta",
+            "name": "task meta",
+            "app_label": "djcelery"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "tasksetmeta",
+            "name": "taskset meta",
+            "app_label": "djcelery"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "user",
+            "name": "user",
+            "app_label": "auth"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "workerstate",
+            "name": "worker",
+            "app_label": "djcelery"
+        }
+    },
+    {
+        "pk": "26b8e46e46b50a7ab8a218373eabda78",
+        "model": "sessions.session",
+        "fields": {
+            "expire_date": "2011-09-03 11:43:51",
+            "session_data": "ZTM2OGUxMmIxNGMzM2RhYjFlZjk2ZTIwZWExZjZmZjY3MjY1OGVmMjqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQRLAXUu\n"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "sites.site",
+        "fields": {
+            "domain": "example.com",
+            "name": "example.com"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "register.sport",
+        "fields": {
+            "name": "basketball"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "register.sport",
+        "fields": {
+            "name": "hockey"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "register.sport",
+        "fields": {
+            "name": "baseball"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "register.sport",
+        "fields": {
+            "name": "volleyball"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "register.sport",
+        "fields": {
+            "name": "soccer"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "register.player",
+        "fields": {
+            "gender": "M",
+            "facebook_oauth_token": "",
+            "sports": [
+                1,
+                2,
+                5
+            ],
+            "twitter_oauth_secret": "",
+            "twitter_oauth_token": "",
+            "user": 2,
+            "image_url": "http://www.gravatar.com/avatar/240f00368979a3327c854f560001c42e?s=250"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "register.player",
+        "fields": {
+            "gender": "F",
+            "facebook_oauth_token": "",
+            "sports": [
+                3,
+                4,
+                5
+            ],
+            "twitter_oauth_secret": "",
+            "twitter_oauth_token": "",
+            "user": 3,
+            "image_url": "http://www.gravatar.com/avatar/240f00368979a3327c854f560001c42e?s=250"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "register.player",
+        "fields": {
+            "gender": "Q",
+            "facebook_oauth_token": "",
+            "sports": [
+                1,
+                4
+            ],
+            "twitter_oauth_secret": "",
+            "twitter_oauth_token": "",
+            "user": 4,
+            "image_url": "http://www.gravatar.com/avatar/240f00368979a3327c854f560001c42e?s=250"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "game.game",
+        "fields": {
+            "restrictions": "",
+            "latitude": "45.381188",
+            "players": [],
+            "longitude": "-75.6417",
+            "start_date_and_time": "2011-08-07 17:30:00",
+            "address": "1840 Lorraine Ave.",
+            "owner": 2,
+            "minimum_players": 4,
+            "sport": 1
+        }
+    },
+    {
+        "pk": 2,
+        "model": "game.game",
+        "fields": {
+            "restrictions": "3 on 3",
+            "latitude": "45.383532",
+            "players": [
+                2
+            ],
+            "longitude": "-75.697517",
+            "start_date_and_time": "2011-08-08 17:30:00",
+            "address": "Carleton University",
+            "owner": 3,
+            "minimum_players": 10,
+            "sport": 2
+        }
+    },
+    {
+        "pk": 3,
+        "model": "game.game",
+        "fields": {
+            "restrictions": "Womens Only",
+            "latitude": "45.376713",
+            "players": [
+                2,
+                3
+            ],
+            "longitude": "-75.681835",
+            "start_date_and_time": "2011-08-09 16:30:00",
+            "address": "Riverside Dr.",
+            "owner": 4,
+            "minimum_players": 7,
+            "sport": 2
+        }
+    },
+    {
+        "pk": 4,
+        "model": "game.game",
+        "fields": {
+            "restrictions": "",
+            "latitude": "45.377713",
+            "players": [
+                2
+            ],
+            "longitude": "-75.682",
+            "start_date_and_time": "2011-08-10 16:30:00",
+            "address": "Dup Riverside Dr.",
+            "owner": 4,
+            "minimum_players": 10,
+            "sport": 3
+        }
+    },
+    {
+        "pk": 5,
+        "model": "game.game",
+        "fields": {
+            "restrictions": "",
+            "latitude": "45.384532",
+            "players": [
+                4
+            ],
+            "longitude": "-75.677517",
+            "start_date_and_time": "2011-08-11 17:30:00",
+            "address": "Dup Carleton University",
+            "owner": 1,
+            "minimum_players": 2,
+            "sport": 4
+        }
+    },
+    {
+        "pk": 6,
+        "model": "game.game",
+        "fields": {
+            "restrictions": "",
+            "latitude": "45.384188",
+            "players": [
+                2,
+                4
+            ],
+            "longitude": "-75.6416",
+            "start_date_and_time": "2011-08-12 17:30:00",
+            "address": "Dup 1840 Lorraine Ave.",
+            "owner": 3,
+            "minimum_players": 4,
+            "sport": 5
+        }
+    },
+    {
+        "pk": 22,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_logentry",
+            "name": "Can add log entry",
+            "content_type": 8
+        }
+    },
+    {
+        "pk": 23,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_logentry",
+            "name": "Can change log entry",
+            "content_type": 8
+        }
+    },
+    {
+        "pk": 24,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_logentry",
+            "name": "Can delete log entry",
+            "content_type": 8
+        }
+    },
+    {
+        "pk": 4,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_group",
+            "name": "Can add group",
+            "content_type": 2
+        }
+    },
+    {
+        "pk": 5,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_group",
+            "name": "Can change group",
+            "content_type": 2
+        }
+    },
+    {
+        "pk": 6,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_group",
+            "name": "Can delete group",
+            "content_type": 2
+        }
+    },
+    {
+        "pk": 10,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_message",
+            "name": "Can add message",
+            "content_type": 4
+        }
+    },
+    {
+        "pk": 11,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_message",
+            "name": "Can change message",
+            "content_type": 4
+        }
+    },
+    {
+        "pk": 12,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_message",
+            "name": "Can delete message",
+            "content_type": 4
+        }
+    },
+    {
+        "pk": 1,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_permission",
+            "name": "Can add permission",
+            "content_type": 1
+        }
+    },
+    {
+        "pk": 2,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_permission",
+            "name": "Can change permission",
+            "content_type": 1
+        }
+    },
+    {
+        "pk": 3,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_permission",
+            "name": "Can delete permission",
+            "content_type": 1
+        }
+    },
+    {
+        "pk": 7,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_user",
+            "name": "Can add user",
+            "content_type": 3
+        }
+    },
+    {
+        "pk": 8,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_user",
+            "name": "Can change user",
+            "content_type": 3
+        }
+    },
+    {
+        "pk": 9,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_user",
+            "name": "Can delete user",
+            "content_type": 3
+        }
+    },
+    {
+        "pk": 13,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_contenttype",
+            "name": "Can add content type",
+            "content_type": 5
+        }
+    },
+    {
+        "pk": 14,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_contenttype",
+            "name": "Can change content type",
+            "content_type": 5
+        }
+    },
+    {
+        "pk": 15,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_contenttype",
+            "name": "Can delete content type",
+            "content_type": 5
+        }
+    },
+    {
+        "pk": 46,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_crontabschedule",
+            "name": "Can add crontab",
+            "content_type": 16
+        }
+    },
+    {
+        "pk": 47,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_crontabschedule",
+            "name": "Can change crontab",
+            "content_type": 16
+        }
+    },
+    {
+        "pk": 48,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_crontabschedule",
+            "name": "Can delete crontab",
+            "content_type": 16
+        }
+    },
+    {
+        "pk": 43,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_intervalschedule",
+            "name": "Can add interval",
+            "content_type": 15
+        }
+    },
+    {
+        "pk": 44,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_intervalschedule",
+            "name": "Can change interval",
+            "content_type": 15
+        }
+    },
+    {
+        "pk": 45,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_intervalschedule",
+            "name": "Can delete interval",
+            "content_type": 15
+        }
+    },
+    {
+        "pk": 52,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_periodictask",
+            "name": "Can add periodic task",
+            "content_type": 18
+        }
+    },
+    {
+        "pk": 53,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_periodictask",
+            "name": "Can change periodic task",
+            "content_type": 18
+        }
+    },
+    {
+        "pk": 54,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_periodictask",
+            "name": "Can delete periodic task",
+            "content_type": 18
+        }
+    },
+    {
+        "pk": 49,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_periodictasks",
+            "name": "Can add periodic tasks",
+            "content_type": 17
+        }
+    },
+    {
+        "pk": 50,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_periodictasks",
+            "name": "Can change periodic tasks",
+            "content_type": 17
+        }
+    },
+    {
+        "pk": 51,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_periodictasks",
+            "name": "Can delete periodic tasks",
+            "content_type": 17
+        }
+    },
+    {
+        "pk": 37,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_taskmeta",
+            "name": "Can add task meta",
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 38,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_taskmeta",
+            "name": "Can change task meta",
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 39,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_taskmeta",
+            "name": "Can delete task meta",
+            "content_type": 13
+        }
+    },
+    {
+        "pk": 40,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_tasksetmeta",
+            "name": "Can add taskset meta",
+            "content_type": 14
+        }
+    },
+    {
+        "pk": 41,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_tasksetmeta",
+            "name": "Can change taskset meta",
+            "content_type": 14
+        }
+    },
+    {
+        "pk": 42,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_tasksetmeta",
+            "name": "Can delete taskset meta",
+            "content_type": 14
+        }
+    },
+    {
+        "pk": 58,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_taskstate",
+            "name": "Can add task",
+            "content_type": 20
+        }
+    },
+    {
+        "pk": 59,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_taskstate",
+            "name": "Can change task",
+            "content_type": 20
+        }
+    },
+    {
+        "pk": 60,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_taskstate",
+            "name": "Can delete task",
+            "content_type": 20
+        }
+    },
+    {
+        "pk": 55,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_workerstate",
+            "name": "Can add worker",
+            "content_type": 19
+        }
+    },
+    {
+        "pk": 56,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_workerstate",
+            "name": "Can change worker",
+            "content_type": 19
+        }
+    },
+    {
+        "pk": 57,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_workerstate",
+            "name": "Can delete worker",
+            "content_type": 19
+        }
+    },
+    {
+        "pk": 34,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_comments",
+            "name": "Can add comments",
+            "content_type": 12
+        }
+    },
+    {
+        "pk": 35,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_comments",
+            "name": "Can change comments",
+            "content_type": 12
+        }
+    },
+    {
+        "pk": 36,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_comments",
+            "name": "Can delete comments",
+            "content_type": 12
+        }
+    },
+    {
+        "pk": 31,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_game",
+            "name": "Can add game",
+            "content_type": 11
+        }
+    },
+    {
+        "pk": 32,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_game",
+            "name": "Can change game",
+            "content_type": 11
+        }
+    },
+    {
+        "pk": 33,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_game",
+            "name": "Can delete game",
+            "content_type": 11
+        }
+    },
+    {
+        "pk": 28,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_player",
+            "name": "Can add player",
+            "content_type": 10
+        }
+    },
+    {
+        "pk": 29,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_player",
+            "name": "Can change player",
+            "content_type": 10
+        }
+    },
+    {
+        "pk": 30,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_player",
+            "name": "Can delete player",
+            "content_type": 10
+        }
+    },
+    {
+        "pk": 25,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_sport",
+            "name": "Can add sport",
+            "content_type": 9
+        }
+    },
+    {
+        "pk": 26,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_sport",
+            "name": "Can change sport",
+            "content_type": 9
+        }
+    },
+    {
+        "pk": 27,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_sport",
+            "name": "Can delete sport",
+            "content_type": 9
+        }
+    },
+    {
+        "pk": 16,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_session",
+            "name": "Can add session",
+            "content_type": 6
+        }
+    },
+    {
+        "pk": 17,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_session",
+            "name": "Can change session",
+            "content_type": 6
+        }
+    },
+    {
+        "pk": 18,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_session",
+            "name": "Can delete session",
+            "content_type": 6
+        }
+    },
+    {
+        "pk": 19,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_site",
+            "name": "Can add site",
+            "content_type": 7
+        }
+    },
+    {
+        "pk": 20,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_site",
+            "name": "Can change site",
+            "content_type": 7
+        }
+    },
+    {
+        "pk": 21,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_site",
+            "name": "Can delete site",
+            "content_type": 7
+        }
+    },
+    {
+        "pk": 1,
+        "model": "auth.user",
+        "fields": {
+            "username": "myusuf",
+            "first_name": "",
+            "last_name": "",
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "last_login": "2011-08-20 11:43:51",
+            "groups": [],
+            "user_permissions": [],
+            "password": "sha1$71b28$69f337af5069a5cbb8b45c8a01fce1c62a079f88",
+            "email": "yusuf.mahdi@gmail.com",
+            "date_joined": "2011-08-20 11:43:33"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "auth.user",
+        "fields": {
+            "username": "iammale",
+            "first_name": "I am",
+            "last_name": "Male",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "last_login": "2011-08-20 11:43:40",
+            "groups": [],
+            "user_permissions": [],
+            "password": "test",
+            "email": "iammale@gmail.com",
+            "date_joined": "2011-08-20 11:43:40"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "auth.user",
+        "fields": {
+            "username": "iamfemale",
+            "first_name": "I am",
+            "last_name": "Female",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "last_login": "2011-08-20 11:43:40",
+            "groups": [],
+            "user_permissions": [],
+            "password": "test",
+            "email": "iamfemale@gmail.com",
+            "date_joined": "2011-08-20 11:43:40"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "auth.user",
+        "fields": {
+            "username": "nogender",
+            "first_name": "Qinta",
+            "last_name": "Shanana",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "last_login": "2011-08-20 11:43:40",
+            "groups": [],
+            "user_permissions": [],
+            "password": "test",
+            "email": "qinta@gmail.com",
+            "date_joined": "2011-08-20 11:43:40"
+        }
+    }
+]

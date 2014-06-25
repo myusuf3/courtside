@@ -1,0 +1,300 @@
+/* HTML5 ✰ Boilerplate */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+table { border-collapse: collapse; border-spacing: 0; }
+input, select { vertical-align: middle; }
+select, input, textarea, button { font:99% sans-serif; }
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+html { overflow-y: scroll; }
+a:hover, a:active { outline: none; }
+nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+td { vertical-align: top; }
+pre {
+  white-space: pre; white-space: pre-wrap; word-wrap: break-word;
+  padding: 15px; }
+textarea { overflow: auto; } 
+.ie6 legend, .ie7 legend { margin-left: -7px; } 
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
+button, input, select, textarea { margin: 0; }
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid {
+   border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red; }
+.no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
+::-moz-selection{ background: #f02b21; color:#fff; text-shadow: none; }
+::selection { background:#f02b21; color:#fff; text-shadow: none; }
+a:link { -webkit-tap-highlight-color: #FF5E99; }
+button {  width: auto; overflow: visible; }
+
+
+html, body, #wrapper { height: 100%; }
+body > #wrapper { height: auto; min-height: 100%; }
+body { background: #fdfdfd; }
+body, select, input, textarea {
+	color: #444;
+	font-family: Georgia, serif;
+	font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 { padding-bottom: 15px; }
+h1 { font-size: 45px; }
+h2 { font-size: 26px; }
+h3 { font-size: 18px; }
+h4 { font-size: 16px; }
+a, a:active, a:visited { color: #f02b21; text-decoration: none; }
+a:hover { color: #444; text-decoration: underline; }
+
+/**
+ * Primary styles
+ * Author: Serena Ngai
+ */
+
+.baseball_icon { background: url("../images/baseball.png") left top no-repeat; }
+.basketball_icon { background: url("../images/basketball.png") left top no-repeat; }
+.hockey_icon { background: url("../images/hockey.png") left 5px no-repeat; }
+.soccer_icon { background: url("../images/soccer.png") left top no-repeat; }
+.volleyball_icon { background: url("../images/volleyball.png") left top no-repeat; }
+
+.button { margin-bottom: 5px; 
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px; }
+.button, .button a { display: block; padding: 4px 0 4px 17px; }
+.button a { color: #fff; font-family: 'Francois One', sans-serif; font-size: 18px; text-decoration: none; }
+.button:hover { background: #444; }
+	.email { background: url("../images/email.png") 15px center no-repeat #f02b21; }
+	.email.button:hover { background: url("../images/email.png") 15px center no-repeat #444; }
+	.twitter { background: url("../images/twitter.png") 15px center no-repeat #f02b21; }
+	.twitter.button:hover { background: url("../images/twitter.png") 15px center no-repeat #444; }
+	.facebook { background: url("../images/facebook.png") 15px center no-repeat #f02b21; }
+	.facebook.button:hover { background: url("../images/facebook.png") 15px center no-repeat #444; }
+
+.helptext { color: #999; font-size: 12px; }
+.info_label { border-bottom: 1px #ccc dashed; font-style: italic; margin: 25px 0 10px 0; padding-bottom: 10px;}
+
+.footer_contact .email, .footer_contact .twitter { padding-left: 35px; }
+
+.game_players { background: url("../images/players.png") left top no-repeat; margin-top: 30px; padding: 6px 0 0 40px; }
+.game_title { font-family: 'Francois One', sans-serif; }
+
+.group { background-color: #ebe7e1; margin: 30px 0; padding: 30px 18px 18px; position: relative; }
+
+.headline { color: #f02b21; font-family: 'Francois One', sans-serif; }
+
+.input_text { border: 2px #ccc solid; padding: 5px; width: 207px; }
+.input_button { background: #f02b21; border: none; color: #fff; font-family: 'Francois One', sans-serif; font-size: 18px;  padding: 4px 17px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px; }
+.input_button:hover { background: #444; }
+
+.info { color: #aaa; font-size: 12px; font-style: italic; }
+
+.signup_heading { font-family: 'Francois One', sans-serif; padding-bottom: 0px; text-align: center; }
+
+.results_title { background: url("../images/title.png") top left no-repeat; color: #fff; font-family: 'Francois One', sans-serif; font-size: 23px; left: -10px; letter-spacing: 0.03em; padding: 1px 10px; position: absolute; text-transform: uppercase; top: -18px; width: 175px; }
+.summary_list { list-style: none; }
+.summary_list li { min-height: 26px; padding: 0 0 20px 35px; }
+
+.summary_list .game_title { font-family: Helvetica, Arial, sans-serif; }
+.summary_list .game_title span { font-weight: bold; }
+.summary_list .game_summary_detail { font-style: italic; font-size: 12px; }
+.summary_list .view_more_games { font-style: italic; text-align: right; padding: 0; }
+
+.tags .baseball, .tags .baseball input { background-color: #ffb518; }
+.tags .basketball, .tags .basketball input { background-color: #f0652a; }
+.tags .hockey, .tags .hockey input { background-color: #01b0c5; }
+.tags .soccer, .tags .soccer input { background-color: #08ab50; }
+.tags .volleyball, .tags .volleyball input { background-color: #92278f; }
+
+.tags { border-bottom: 1px #ddd dashed; list-style: none; padding: 30px 0 25px; }
+.tags li, .tags input { border: none; display: block; height: 30px; position: relative; 
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px; }	
+.tags li { display: inline-block; margin-bottom: 5px; }
+.tags li.hide { background: #ddd; }
+.tags a { color: #fff; }
+
+
+.tags input:hover { background:url("../images/x.png") 90% 11px no-repeat #ddd; }
+.tags input { background:url("../images/x.png") 90% 11px no-repeat; padding-right: 25px; }
+.tags input, .tags a, .game_type { color: #fff; font-family: Helvetica, Arial, sans-serif; font-size: 14px; letter-spacing: 0.02em; text-decoration: none; }
+
+.user_detail { color: #999; font-size: 13px; }
+
+
+
+
+
+#about_courtside { border-right: 1px #ddd dashed; height: 600px; margin-right: 70px; padding-right: 70px; }
+#about_courtside p { padding-bottom: 12px; }
+#about_courtside, #about_contact, #about_team { margin-top: 40px; }
+#about_contact .email, #about_contact .twitter { padding-left: 35px; }
+#about_from_team { font-style: italic; }
+#about_team ul { list-style: none; }
+#about_team li { padding-bottom: 20px; }
+#about_team h3 { font-family: 'Francois One', sans-serif; padding-bottom: 0; }
+#about_team p { color: #999; font-style: italic; }
+
+#container { overflow: auto; margin-bottom: 50px; padding-bottom: 150px; }
+
+#footer { background-color: #ebe7e1; font-family: Helvetica, Arial, sans-serif; position: relative; margin-top: -150px; height: 150px; clear: both; }
+#footer a { color: #777; }
+#footer_container { padding-top: 20px; }
+#footer ul { list-style: none; }
+#footer li { padding-bottom: 5px; }
+#footer_copyright { font-size: 11px; padding-top: 16px; text-align: center; }
+
+#game_info { margin-top: 25px; }
+#game_col_left { margin-left: 30px; }
+#game_col_left .game_type { display: inline-block; font-size: 16px; padding: 10px 0 0; text-transform: uppercase;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px; }
+#game_col_left .game_type.baseball { color: #ffb518; }
+#game_col_left .game_type.basketball { color: #f0652a; }
+#game_col_left .game_type.hockey { color: #01b0c5; }
+#game_col_left .game_type.soccer { color: #08ab50; }
+#game_col_left .game_type.volleyball { color: #92278f; }
+
+#game_comments { background: url("../images/comments.png") left top no-repeat; margin-top: 25px; padding: 5px 0 0 40px; }
+#game_comment_form .input_text { width: 100%; }
+#game_comment_form .input_button { font-family: Helvetica, Arial, sans-serif; font-size: 14px; margin: 10px 0 0; }
+
+.game_heading { padding: 0 0 20px 35px; }
+#game_location { background: url("../images/location.png") left top no-repeat; }
+#game_date_time { background: url("../images/date.png") left top no-repeat;  }
+#game_restriction { background: url("../images/restrictions.png") left top no-repeat; }
+#game_restriction li { padding-bottom: 10px; }
+
+#game_map { border: 10px #ebe7e1 solid; height: 250px; position: relative; }
+#game_col_left .game_title { line-height: 26px; padding-left: 32px; }
+#game_players_list, #game_comments_list { list-style: none; }
+#game_players_list li { display: inline-block; float: left; margin-right: 10px; padding-bottom: 10px; }
+#game_comments_list .info { margin-top: 5px; }
+#game_players_list img { border: 1px #aaa solid; display: block; height: 50px; width: 50px; }
+#game_comments_list li { border-bottom: 1px #ddd dotted; margin-bottom: 20px; padding-bottom: 20px; }
+
+#join_game, #leave_game { float: right; }
+#join_game, #join_game a 
+#leave_game, #leave_game a { background: #f02b21; display: block; font-family: 'Francois One', sans-serif; font-size: 25px; text-align: center; 
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px; }
+#join_game a, #leave_game a { color: #fff; display: inline-block; padding: 3px 0; width: 250px; }
+#join_game a:hover, #leave_game a:hover { background: #444; text-decoration: none; }
+
+#leave_game, #leave_game a { background: #0092ff; }
+#logo { padding: 0 20px 20px 0; position: relative; }
+#logo p { color: #f02b21; font-family: 'Francois One', sans-serif; font-size: 15px; position: absolute; right: 0; top: 60px; }
+#login_heading { font-family: 'Francois One', sans-serif; padding: 35px 0 15px; text-align: center; }
+#login_email p { padding-bottom: 5px; text-align: right; }
+
+#map { border: 10px #ebe7e1 solid; height: 500px; position: relative; z-index: 1; }
+#map_filter_time { padding-top: 30px; }
+#map_filter_time h4 { font-family: Helvetica, Arial, sans-serif; }
+#map_filter_time label { font-size: 12px; font-style: italic; }
+#map_search { margin-left: 0; margin-right: 0; }
+#map_heading { font-family: 'Francois One', sans-serif; line-height: 34px; }
+#map:before { content: ""; display: block; position: absolute; z-index: -1; top: 0; left:0; right: 0; bottom: 0; border: 3px #fff solid; }
+
+#nav { font-family: Helvetica, Arial, sans-serif; list-style: none; font-weight: bold; padding: 100px 0 0; margin: 0; }
+#nav li, #nav li a { display: inline-block; padding: 6px 8px; 
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px; }
+#nav li a:hover { border-bottom: 3px #f02b21 solid; color: #f02b21; text-decoration: none; }
+#nav .selected { border-bottom: 3px #f02b21 solid; color: #f02b21; }
+#nav #login_button, #nav #logout_button { float: right; }
+#nav #login_button a { background: url("../images/lock.png") 0 0 no-repeat; display: block; line-height: 15px; padding-left: 20px; }
+
+#logo_single { padding-top: 80px; }
+#logo_register a, #logo_single a { text-align: center; }
+
+#oops { padding: 30px 0; text-align: center; }
+#oops .error { border-right: 5px solid #f02b21; display: inline-block; font-size: 100px; margin-right: 30px; padding-right: 30px; }
+#oops .message { font-size: 50px; }
+.oops_message { font-style: italic; padding-bottom: 5px; text-align: center; }
+
+#profile_edit { padding-top: 10px; }
+#profile_gravatar { border: 10px #ebe7e1 solid; height: 250px; width: 250px; }
+#profile_greeting { font-family: 'Francois One', sans-serif;  }
+#profile_games_joined .results_title, #profile_more_upcoming .results_title { background: #F02B21; width: 268px; }
+
+#profile_user_details { list-style: none; padding-right: 20px; }
+#profile_user_details .tags { border: 0; padding: 0; }
+#profile_user_details .tags a { border: 0; padding: 0; }
+#profile_user_details .tags a:before { background: none; }
+#profile_user_details .tags li { height: 100%; padding: 5px 10px; margin: 0; }
+
+#profile_more_upcoming { margin-top: 45px; }
+
+#single_form_container { background-color: #ebe7e1; height: 550px; margin: 25px 0; position: relative; 
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; }
+#single_form_container label { display: inline-block; text-align: right; width: 124px; }
+#single_form_container p { padding-bottom: 5px; }
+#single_form_container ul { list-style: none;  margin: 0 auto; padding-left: 30px; width: 116px; }
+#single_form_container ul label { text-align: left; }
+#single_form_container ul input[type="checkbox"] { float: left; margin-right: 10px; }
+#single_form { font-style: italic; width: 450px; }
+#login_email { padding: 0 20px 0 0; }
+
+
+#search_map { border-bottom: 1px #ddd dashed; padding-bottom: 35px; }
+#search_map label { background: url("../images/location.png") left top no-repeat; float: left; font-family: Helvetica, Arial, sans-serif; padding: 6px 0 12px 30px; text-transform: uppercase; }
+#search_map .input_button { float: right; margin-top: 5px; }
+
+#search_results .results_title { background: #F02B21; width: 172px; }
+
+#signup_methods, #login_methods { text-align: center; margin: 0 auto; padding: 8px 0; width: 580px; }
+#signup_email, #login_email { border-right: 1px #ccc solid; float: left; font-style: italic; padding: 10px 12px 0 0; width: 305px; }
+#login_email { padding: 0 20px 0 0; }
+#signup_email label, #login_email label, #register label { padding-right: 10px; }
+#signup_email .input_button, #login_email .input_button { margin-top: 10px; width: 275px; }
+#signup_thirdparty, #login_thirdparty { float: right; list-style: none; width: 233px; }
+
+#signup, #login { background-color: #ebe7e1; height: 252px; margin: 25px 0; position: relative; }
+#signup:before, #login:before { content: ""; position: absolute; top: 0; left: 0; border-width: 125px; border-style: solid; border-color: transparent transparent transparent #fdfdfd; }
+#signup:after, #login:after { content: ""; position: absolute; top: 0; right: 0; border-width: 125px; border-style: solid; border-color: transparent #fdfdfd transparent transparent; }
+#signup h3 { padding-top: 25px; }
+#signup h2 { background: url("../images/characters.png") 50% 45px no-repeat; padding-bottom: 45px; }
+
+#this_week { margin-right: 88px; }
+
+
+
+
+
+/* image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+
+/* clearfix */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block nav %}
+    <ul id="nav" class="grid_7">
+      <li class="selected">About</li>
+      <li id="login_button"><a href="/login">Login</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <section id="about_courtside" class="grid_7">
+      <h2 class="headline">Get active. Meet new friends. And live a healthier lifestyle. </h2>
+      <p>With Courtside you can easily plan, organize, and play pickup sports that you actually enjoy, instead of wrestling with weights at the gym. Meeting your new year resolutions won't be so difficult this year!</p>
+      <p>Cheers,</p>
+      <p id="about_from_team">The Courtside Team </p>
+    </section>
+
+    <section id="about_contact" class="grid_3">
+      <h2 class="headline">Contact Us</h2>
+      <ul>
+        <li class="twitter button"><a href="http://twitter.com/courtsideme">Follow us on Twitter</a></li>
+      </ul>
+    </section>
+
+    <section id="about_team" class="grid_3">
+      <h2 class="headline">The Team</h2>      
+      <ul>
+        <li>
+          <h3>Mahdi Yusuf</h3>
+          <p>Developer</p>
+          <p><a href="http://twitter.com/myusuf3">@myusuf3</a></p>
+        </li>
+        <li>
+          <h3>Omar Shammas</h3>
+          <p>Developer</p>
+          <p><a href="http://twitter.com/OmarShammas">@omarshammas</a></p>
+        </li>
+        <li>
+          <h3>Serena Ngai</h3>
+          <p>Designer & Front-End Developer</p>
+          <p><a href="http://twitter.com/serenangai">@serenangai</a></p>
+        </li>
+      </ul>
+    </section>
+{% endblock %}
