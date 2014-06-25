@@ -40,7 +40,7 @@ class NewPlayerForm(forms.Form):
     password2 =  forms.CharField(widget=forms.PasswordInput(attrs={'class':'input_text'}), label='Re-type Password')
     email = forms.EmailField(widget=forms.TextInput(attrs={'class':'input_text'}))
     sports = forms.ModelMultipleChoiceField(queryset=Sport.objects.all(),
-                                        widget=forms.CheckboxSelectMultiple(attrs={'class':'input_text'}),
+                                        widget=forms.CheckboxSelectMultiple(attrs={}),
                                         label='Sports')
     gender = forms.ChoiceField(choices=GENDER_CHOICES,
                               widget=forms.Select(attrs={'class':'input_text'}),
