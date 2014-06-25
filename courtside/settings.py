@@ -16,8 +16,6 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-SOUTH_DATABASE_ADAPTERS = {'default':'south.db.postgresql_psycopg2'}
-
 if DEBUG:
     DATABASES = {
         'default': {
@@ -31,7 +29,16 @@ if DEBUG:
     }
 
 else:
-    DATABASES = {'default': dj_database_url.config()}
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'db0pkdtmic9k69',                       # Or path to database file if using sqlite3.
+            'USER': 'cgurmijgbhnmwx',                       # Not used with sqlite3.
+            'PASSWORD': '4ROnFFHYIkPWWeyhtE8eFpJGxT',                   # Not used with sqlite3.
+            'HOST': 'ec2-54-204-16-70.compute-1.amazonaws.com',                       # Set to empty string for localhost. Not used with sqlite3.
+            'PORT': '5432',                       # Set to empty string for default. Not used with sqlite3.
+        }
+    }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.4/ref/settings/#allowed-hosts
