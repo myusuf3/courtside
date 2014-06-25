@@ -1,4 +1,5 @@
 {% load time_tags %}
+{% load static from staticfiles %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,8 +12,8 @@
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='http://fonts.googleapis.com/css?family=Francois+One' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="{{STATIC_URL}}stylesheets/style.css">
-  <link rel="stylesheet" href="{{STATIC_URL}}stylesheets/960_12_col.css">
+  <link rel="stylesheet" href="{% static "stylesheets/style.css" %}">
+  <link rel="stylesheet" href="{% static "stylesheets/960_12_col.css" %}">
   {% block stylesheets %}{% endblock %}
 
   <!-- Google Analytics Code -->
@@ -43,7 +44,7 @@
     <header>
       <div id="logo" class="grid_5">
         <h1 class="ir">courtside.me</h1>
-        <a href="/"><img src="{{STATIC_URL}}images/logo.png"></a>
+        <a href="/"><img src="{% static "images/logo.png" %}></a>
         <p>beta</p>
       </div>
 
@@ -91,7 +92,7 @@
 
   <!-- JavaScript at the bottom for fast page loading -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
-  <script>window.jQuery || document.write("<script src='{{STATIC_URL}}js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+  <script>window.jQuery || document.write("<script src='{% static "js/libs/jquery-1.5.1.min.js" %}'>\x3C/script>")</script>
   {% block scripts %}{% endblock %}
 
 </body>
