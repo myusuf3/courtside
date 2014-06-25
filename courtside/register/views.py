@@ -14,7 +14,6 @@ from models import Player
 from twython import Twython as twitter
 
 
-from tasks import SignUpTask
 
 def get_gravatar(email, size=250):
     """ This method returns the url to the gravatar that
