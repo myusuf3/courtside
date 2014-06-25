@@ -1,6 +1,12 @@
 # Django settings for courtside project.
 import os
 
+if os.environ.get('PRODUCTION') == 'True':
+    DEBUG = False
+else:
+    DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
