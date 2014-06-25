@@ -1,13 +1,6 @@
 # Django settings for courtside project.
 import os
 
-import djcelery
-djcelery.setup_loader()
-
-
-#Broker Settings
-BROKER_URL = 'amqp://guest:guest@localhost:5672/'
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -16,10 +9,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL')
 EMAIL_HOST_PASSWORD = os.environ.get('PASSWORD')
 EMAIL_PORT = 587
-
-CELERY_ALWAYS_EAGER = False
-
-CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
 
 INTERNAL_IPS = ('127.0.0.1',)
 
@@ -30,17 +19,21 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'courtside',                       # Or path to database file if using sqlite3.
-        'USER': '',                       # Not used with sqlite3.
-        'PASSWORD': '',                   # Not used with sqlite3.
-        'HOST': 'localhost',                       # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                       # Set to empty string for default. Not used with sqlite3.
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'courtside',                       # Or path to database file if using sqlite3.
+            'USER': '',                       # Not used with sqlite3.
+            'PASSWORD': '',                   # Not used with sqlite3.
+            'HOST': 'localhost',                       # Set to empty string for localhost. Not used with sqlite3.
+            'PORT': '',                       # Set to empty string for default. Not used with sqlite3.
+        }
     }
-}
+
+else:
+    DATABASES = {}
+    DATABASES['default'] = dj_database_url.config()
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -150,8 +143,8 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     # 'debug_toolbar',
     'south',
-    'djcelery',
     'rest_framework',
+    'gunicorn',
 )
 
 # A sample logging configuration. The only tangible logging
