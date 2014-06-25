@@ -147,6 +147,9 @@ INSTALLED_APPS = (
     'gunicorn',
 )
 
+# Python dotted path to the WSGI application used by Django's runserver.
+WSGI_APPLICATION = 'courtside.wsgi.application'
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error.
