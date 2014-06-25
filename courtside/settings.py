@@ -16,6 +16,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+SOUTH_DATABASE_ADAPTERS = {'default':'south.db.postgresql_psycopg2'}
+
 if DEBUG:
     DATABASES = {
         'default': {
@@ -29,8 +31,7 @@ if DEBUG:
     }
 
 else:
-    DATABASES = {}
-    DATABASES['default'] = dj_database_url.config()
+    DATABASES = {'default': dj_database_url.config()}
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.4/ref/settings/#allowed-hosts
