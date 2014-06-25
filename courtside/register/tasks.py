@@ -1,7 +1,5 @@
 from time import sleep
 from delorean import Delorean
-from celery.registry import tasks
-from celery.task import Task
 
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
@@ -10,7 +8,7 @@ from django.core.mail import EmailMultiAlternatives
 
 from game.models import Game
 
-class SignUpTask(Task):
+class SignUpTask(object):
 
     def run(self, user):
 
@@ -21,8 +19,6 @@ class SignUpTask(Task):
         msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
         msg.attach_alternative(html_content, "text/html")
         msg.send()
-
-tasks.register(SignUpTask)
 
 
 class CleanGamesTask(Task):
@@ -40,9 +36,6 @@ class CleanGamesTask(Task):
             else:
                 game.active = False
             game.save()
-
-
-tasks.register(CleanGamesTask)
 
 
 
