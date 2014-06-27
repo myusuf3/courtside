@@ -1,0 +1,3 @@
+- sending text message alerts for when people are added to games
+- sending message before game with address
+- adding football and ultimate to list of games
