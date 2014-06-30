@@ -18,3 +18,4 @@ twython==1.4.2
 wsgiref==0.1.2
 gevent==1.0.1
 whitenoise==1.0.3
+django-twilio==0.5.2
