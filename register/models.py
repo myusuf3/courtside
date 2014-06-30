@@ -36,6 +36,7 @@ class Player(models.Model):
     facebook_oauth_token = models.CharField(max_length=150, blank=True)
     facebook_id = models.IntegerField(blank=True, null=True)
     image_url = models.CharField(max_length=150, blank=True)
+    phone_number = models.CharField(max_length=100, blank=True)
 
     def __unicode__(self):
         return "%s player named %s" % (self.get_gender_display(), self.user.first_name)
