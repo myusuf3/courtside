@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block nav %}
+    <ul id="nav" class="grid_7">
+      <li class="selected" >Profile</li>
+      <li><a href="/search">Search for Games</a></li>
+      <li><a href="/create">Create New Game</a></li>
+      <li id="logout_button"><a href="/logout">Logout</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="clearfix">
+    </div>
+    
+    <section id="profile_col_right" class="grid_4">
+      <div id="profile_gravatar"><img src="{{profile_pic_url}}"></div>
+
+      <ul id="profile_user_details">
+        <li id="profile_edit"><a href="/profile/edit">Edit profile</a></li>
+
+        <li><h4 class="info_label">Username</h4></li>
+        <li class="user_detail">{{ player.user.username }}</li>
+
+        <li><h4 class="info_label">Sports Interest</h4></li>
+        <li>
+          <ul class="tags">
+        	  {% for s in sports %}
+  	          <li class="{{s}}"><a href="#">{{s}}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+
+        <li><h4 class="info_label">Name</h4></li>
+        <li class="user_detail">{{ player.user.first_name }} {{ player.user.last_name }}</li>
+
+        <li><h4 class="info_label">Email</h4></li>
+        <li class="user_detail">{{ player.user.email }}</li>
+
+        {% if player.gender != 'Q' %}
+        <li class="info_label">Gender</li>
+	        {% if player.gender == 'M' %}
+		        <li class="user_detail">Male</li>
+		      {% endif %}
+  		    {% if player.gender == 'F' %}
+  		    	<li class="user_detail">Female</li>
+  		   	{% endif %}        
+		   	{% endif %}
+      </ul>
+
+    </section>    
+
+    <section id="profile_col_left" class="grid_6">
+
+      <h2 id="profile_greeting">Hello {{ player.user.first_name }}!</h2> 
+
+      <div id="profile_games_joined" class="group">
+        <div class="results_title">Games I've Joined</div>
+
+        {% if not games %}
+        	<p>Uh oh! You haven't joined any games yet. Well, what are you waitin' for? <a href="/search">Search for Games in your area.</a> </p>
+        {% else %}
+	        <ul class="summary_list">
+	          {% for g in games %}
+		          <li class="{{g.sport}}_icon">
+		            <a href="/game/{{g.id}}/" class="game_title"><span>{{g.sport}}</span></a>
+		            <p class="game_summary_detail">{{g.start_date_and_time}} at {{ g.address }}</p>
+		          </li>
+	          {% endfor %}
+	        </ul>
+        {% endif %}
+      </div>
+
+      <div id="profile_more_upcoming" class="group">
+        <div class="results_title">More Upcoming Games</div>
+
+          <p class="info">Coming Soon!</p>
+ 
+          <!-- <p>Oops! We couldn't find any upcoming games for your subscribed sports. Try <a href="">editing your profile</a> to add more sports to your interests.</p>
+        <ul class="summary_list">
+          <li class="basketball_icon">
+            <a href="/" class="game_title"><span>Basketball</span></a>
+            <p class="game_summary_detail">Thurs July 29, 2011 - 6:00AM at Ravens Nest</p>
+          </li>
+          <li class="soccer_icon">
+            <a href="/" class="game_title"><span>Soccer</span></a>
+            <p class="game_summary_detail">Thurs July 29, 2011 - 6:00AM at Ravens Nest</p>
+          </li>
+          <li class="baseball_icon">
+            <a href="/" class="game_title"><span>Baseball</span></a>
+            <p class="game_summary_detail">Thurs July 29, 2011 - 6:00AM at Ravens Nest</p>
+          </li>
+          <li class="volleyball_icon">
+            <a href="/" class="game_title"><span>Volleyball</span></a>
+            <p class="game_summary_detail">Thurs July 29, 2011 - 6:00AM at Ravens Nest</p>
+          </li>
+        </ul> -->
+      </div>
+
+    </section>    
+{% endblock %}

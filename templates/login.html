@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block nav %}
+    <ul id="nav" class="grid_7">
+        <li><a href="/about">About</a></li>
+        <li id="login_button" class="selected">Login</li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="clearfix">
+    </div>
+
+    <section id="login" class="grid_12">
+      <h2 id="login_heading">Login to your Account</h2>
+      
+      <div id="login_methods" class="clearfix">
+        <form id="login_email" action="/login/" method="post" >
+          {% csrf_token %}
+          <table>
+            {{ form.as_table }}
+          </table>
+         
+          <input class="input_button" type="submit" value="Login" />
+        </form>
+
+        <ul id="signup_thirdparty">
+          <li class="twitter button"><a href="/login/twitter/">Login with Twitter</a></li>
+          <li class="facebook button"><a href="/login/facebook/">Login with Facebook</a></li>
+        </ul>
+      </div>
+    </section>
+{% endblock %}
